@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @expert.firstname %>
+</p>
+
+<p>
+  <strong>Surname:</strong>
+  <%= @expert.surname %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @expert.website %>
+</p>
+
+<%= link_to 'Edit', edit_expert_path(@expert) %> |
+<%= link_to 'Back', experts_path %>
