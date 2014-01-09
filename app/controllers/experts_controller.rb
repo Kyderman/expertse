@@ -1,4 +1,6 @@
 class ExpertsController < ApplicationController
+  require 'nokogiri'
+  require 'open-uri'
   before_action :set_expert, only: [:show, :edit, :update, :destroy]
 
   # GET /experts
@@ -30,6 +32,8 @@ class ExpertsController < ApplicationController
       if @expert.save
         format.html { redirect_to @expert, notice: 'Expert was successfully created.' }
         format.json { render action: 'show', status: :created, location: @expert }
+        
+        doc = Nokogiri::HTML.parse(open(@expert.website))
       else
         format.html { render action: 'new' }
         format.json { render json: @expert.errors, status: :unprocessable_entity }
