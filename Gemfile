@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '>= 3.0.0.0'
+gem "nokogiri", "~> 1.6.1"
 gem 'figaro'
 gem 'pg'
 gem 'simple_form'

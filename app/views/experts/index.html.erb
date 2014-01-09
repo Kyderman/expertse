@@ -1,31 +1,41 @@
-<h1>Listing experts</h1>
+<div class="jumbotron">
+	<h1>Experts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Firstname</th>
-      <th>Surname</th>
-      <th>Website</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+	<%= link_to 'New Expert', new_expert_path, class: "btn btn-primary" %>
+</div>
 
-  <tbody>
-    <% @experts.each do |expert| %>
-      <tr>
-        <td><%= expert.firstname %></td>
-        <td><%= expert.surname %></td>
-        <td><%= expert.website %></td>
-        <td><%= link_to 'Show', expert %></td>
-        <td><%= link_to 'Edit', edit_expert_path(expert) %></td>
-        <td><%= link_to 'Destroy', expert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+	<div class="table-responsive">
+		<table class = "table table-bordered">
+		  <thead>
+		    <tr>
+		      <th>First Name</th>
+		      <th>Surname</th>
+		      <th>Website</th>
+		      <th>Friends</th>
+		      <th></th>
+		      <th></th>
+		      <th></th>
+		    </tr>
+		  </thead>
+		
+		  <tbody>
+		    <% @experts.each do |expert| %>
+		      <tr>
+		        <td><%= expert.firstname %></td>
+		        <td><%= expert.surname %></td>
+		        <td><%= expert.website %></td>
+		        <td><%= expert.friendships.size %></td>
+		        <td><%= link_to 'Show', expert, class: 'btn-xs btn-success' %></td>
+		        <td><%= link_to 'Edit', edit_expert_path(expert), class: 'btn-xs btn-warning' %></td>
+		        <td><%= link_to 'Destroy', expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn-xs btn-danger' %></td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	</div>
+</div>
 
-<br>
 
-<%= link_to 'New Expert', new_expert_path %>
+
+
