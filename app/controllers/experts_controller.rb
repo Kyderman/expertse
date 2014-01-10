@@ -34,6 +34,10 @@ class ExpertsController < ApplicationController
         format.json { render action: 'show', status: :created, location: @expert }
         
         doc = Nokogiri::HTML.parse(open(@expert.website))
+        doc.css('h1, h2, h3').each do |tag|
+          t = Tag.create(:expert_id => @expert.id, :tag => tag.inner_html)
+        end
+        
       else
         format.html { render action: 'new' }
         format.json { render json: @expert.errors, status: :unprocessable_entity }
