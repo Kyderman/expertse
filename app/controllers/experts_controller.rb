@@ -38,6 +38,10 @@ class ExpertsController < ApplicationController
           t = Tag.create(:expert_id => @expert.id, :tag => tag.inner_html)
         end
         
+        googl = Shortly::Clients::Googl
+        @expert.update(:website => googl.shorten(@expert.website).shortUrl)
+        
+        
       else
         format.html { render action: 'new' }
         format.json { render json: @expert.errors, status: :unprocessable_entity }

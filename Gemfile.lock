@@ -56,6 +56,9 @@ GEM
       bundler (~> 1.0)
       rails (>= 3, < 5)
     hike (1.2.3)
+    httparty (0.12.0)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     hub (1.11.1)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -75,6 +78,7 @@ GEM
     mini_portile (0.5.2)
     minitest (4.7.5)
     multi_json (1.8.2)
+    multi_xml (0.5.5)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     pg (0.17.1)
@@ -117,6 +121,9 @@ GEM
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
+    shortly (0.3.3)
+      httparty
+      json
     simple_form (3.0.1)
       actionpack (>= 4.0.0, < 4.1)
       activemodel (>= 4.0.0, < 4.1)
@@ -167,6 +174,7 @@ DEPENDENCIES
   rails_layout
   rspec-rails
   sass-rails (~> 4.0.0)
+  shortly
   simple_form
   therubyracer
   turbolinks

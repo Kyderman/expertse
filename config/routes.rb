@@ -5,5 +5,5 @@ Expertse::Application.routes.draw do
 
   resources :experts
 
-  root :to => "home#index"
+  root :to => "experts#index"
 end
