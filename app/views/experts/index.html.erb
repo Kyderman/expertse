@@ -18,6 +18,9 @@
 		      <th>Website</th>
 		      <th>Friends</th>
 		      <th></th>
+		      <%if ($current_expert)%>
+		      <th></th>
+		      <%end%>
 		      <th></th>
 		      <th></th>
 		      <th></th>
@@ -38,9 +41,27 @@
 		        		<%= link_to 'Set Active',set_current_expert_expert_path(expert), class: 'btn-xs btn-success' %>
 		        	<%end%>
 		        	</td>
+		        	<%if ($current_expert)%>
+		        	<td>
+		        		<%if (expert == $current_expert)%>
+		        			
+		        			<button type="button" class="btn btn-xs btn-success" disabled="disabled">N/A</button>
+		        			<%else%>
+		        			<%if (@curship = $current_expert.friendships.where(:friend_id => expert.id).first)%>
+		        				
+		        				<%= link_to 'Remove Friend', @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: 'btn-xs btn-danger' %>
+		        			<%else%>
+		        			<%= link_to 'Add Friend', friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => expert.id}), :method => :post, class: 'btn-xs btn-success' %>
+		        			<%end%>
+		        			
+		        			
+		        		<%end%>
+		        		
+		        	</td>
+		        	<%end%>
 		        <td><%= link_to 'Show', expert, class: 'btn-xs btn-success' %></td>
 		        <td><%= link_to 'Edit', edit_expert_path(expert), class: 'btn-xs btn-warning' %></td>
-		        <td><%= link_to 'Destroy', expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn-xs btn-danger' %></td>
+		        <td><%= link_to 'Remove', expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn-xs btn-danger' %></td>
 		      </tr>
 		    <% end %>
 		  </tbody>

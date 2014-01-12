@@ -25,13 +25,23 @@ class FriendshipsController < ApplicationController
   # POST /friendships.json
   def create
     @friendship = Friendship.new(friendship_params)
-    @inv_friendship = Friendship.new(:expert_id => @friendship.friend_id, :friend_id => @friendship.expert_id)
+    if ($current_expert)
+      @newf = $current_expert.friendships.build(:friend_id => @friendship.friend_id)
+      @newinvf = $current_expert.inverse_friendships.build(:expert_id => @friendship.friend_id)
+    else
+      
+      @cur_ex = Expert.find(@friendship.expert_id)
+      @newf = @cur_ex.friendships.build(:friend_id => @friendship.friend_id)
+      @newinvf = @cur_ex.inverse_friendships.build(:expert_id => @friendship.friend_id)
+    end
+    
+    
     
 
     respond_to do |format|
-      if @friendship.save && @inv_friendship.save
-        format.html { redirect_to friendships_path, notice: 'Friendship was successfully created.' }
-        format.json { render action: 'index', status: :show, location: friendships_path }
+      if @newf.save && @newinvf.save
+        format.html { redirect_to root_path, notice: 'Friendship was successfully created.' }
+        format.json { render action: 'index', status: :show, location: root_path }
         
         
       else
@@ -55,15 +65,24 @@ class FriendshipsController < ApplicationController
     end
   end
 
-  # DELETE /friendships/1
+  # DELETE /friendships/1@f@f
   # DELETE /friendships/1.json
   def destroy
     
-    @inv_friend = Friendship.find_by expert: @friendship.friend, friend: @friendship.expert
+      @cur_ex = Expert.find(@friendship.expert_id)
+      @newf = @cur_ex.inverse_friendships.where(expert_id: @friendship.friend_id, friend_id: @friendship.expert_id).first
+    
+    
     @friendship.destroy
-    @inv_friend.destroy
+    @newf.destroy
+    
     respond_to do |format|
-      format.html { redirect_to friendships_url }
+      if($current_expert)
+        format.html { redirect_to root_path, notice: 'Friendship successfully removed.' }
+      else
+        format.html { redirect_to friendships_path}
+      end
+     
       format.json { head :no_content }
     end
   end

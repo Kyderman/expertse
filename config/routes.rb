@@ -1,7 +1,8 @@
 Expertse::Application.routes.draw do
   resources :tags
 
-  resources :friendships
+  resources :friendships 
+ 
 
   resources :experts do
     member do
