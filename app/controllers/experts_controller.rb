@@ -2,11 +2,22 @@ class ExpertsController < ApplicationController
   require 'nokogiri'
   require 'open-uri'
   before_action :set_expert, only: [:show, :edit, :update, :destroy]
-
+  $current_expert = nil
   # GET /experts
   # GET /experts.json
   def index
     @experts = Expert.all
+    
+  end
+  
+  def set_current_expert
+    $current_expert = Expert.find(params[:id])
+    redirect_to :action => 'index'
+  end
+  
+  def remove_current_expert
+    $current_expert = nil
+    redirect_to :action => 'index'
   end
 
   # GET /experts/1
@@ -66,7 +77,11 @@ class ExpertsController < ApplicationController
   # DELETE /experts/1
   # DELETE /experts/1.json
   def destroy
+    if ($current_expert == @expert)
+      $current_expert = nil
+    end
     @expert.destroy
+    
     respond_to do |format|
       format.html { redirect_to experts_url }
       format.json { head :no_content }

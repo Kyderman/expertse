@@ -1,11 +1,14 @@
+<div class="row">
 <div class="jumbotron">
 	<h1>Experts</h1>
 	
 	<%= link_to 'Create new', new_expert_path, class: "btn btn-primary btn-lg" %>
 	
 </div>
+</div>
 
-<div class="container">
+<div class="row">
+	<div class="col-md-12">
 	<div class="table-responsive">
 		<table class = "table table-bordered">
 		  <thead>
@@ -14,6 +17,7 @@
 		      <th>Surname</th>
 		      <th>Website</th>
 		      <th>Friends</th>
+		      <th></th>
 		      <th></th>
 		      <th></th>
 		      <th></th>
@@ -27,6 +31,13 @@
 		        <td><%= expert.surname %></td>
 		        <td><%= expert.website %></td>
 		        <td><%= expert.friendships.size %></td>
+		        <td>
+		        	<%if ($current_expert == expert)%>
+		        		<%= link_to 'Remove Active',remove_current_expert_expert_path(expert), class: 'btn-xs btn-danger' %>
+		        	<%else%>
+		        		<%= link_to 'Set Active',set_current_expert_expert_path(expert), class: 'btn-xs btn-success' %>
+		        	<%end%>
+		        	</td>
 		        <td><%= link_to 'Show', expert, class: 'btn-xs btn-success' %></td>
 		        <td><%= link_to 'Edit', edit_expert_path(expert), class: 'btn-xs btn-warning' %></td>
 		        <td><%= link_to 'Destroy', expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn-xs btn-danger' %></td>
@@ -34,6 +45,7 @@
 		    <% end %>
 		  </tbody>
 		</table>
+	</div>
 	</div>
 </div>
 

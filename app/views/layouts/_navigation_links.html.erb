@@ -1,15 +1,21 @@
-
-<li class="dropdown">
-	<a href="#" class="dropdown-toggle" data-toggle="dropdown">View <b class="caret"></b></a>
-	<ul class="dropdown-menu">
-		<li>
-		<%= link_to 'Experts', root_path, class: "" %>
-		</li>
-		<li>
-		<%= link_to 'Friendships', friendships_path, class: "" %>
-		</li>
-		<li>
-		<%= link_to 'Tags', tags_path, class: "" %>
-		</li>
-	</ul>
-</li>
+<ul class="nav navbar-nav">
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">View <b class="caret"></b></a>
+		<ul class="dropdown-menu">
+			<li>
+			<%= link_to 'Experts', root_path, class: "" %>
+			</li>
+			<li>
+			<%= link_to 'Friendships', friendships_path, class: "" %>
+			</li>
+			<li>
+			<%= link_to 'Tags', tags_path, class: "" %>
+			</li>
+		</ul>
+	</li>
+</ul>
+<%if ($current_expert)%>
+	<p class="navbar-text navbar-right">Active expert: <%= link_to $current_expert.firstname + ' ' + $current_expert.surname, $current_expert%></p>
+<%else%>
+	<p class="navbar-text navbar-right">No expert selected...</p>
+<%end%>
