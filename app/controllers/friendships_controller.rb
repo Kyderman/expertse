@@ -25,15 +25,15 @@ class FriendshipsController < ApplicationController
   # POST /friendships.json
   def create
     @friendship = Friendship.new(friendship_params)
-    if ($current_expert)
-      @newf = $current_expert.friendships.build(:friend_id => @friendship.friend_id)
-      @newinvf = $current_expert.inverse_friendships.build(:expert_id => @friendship.friend_id)
-    else
+    #if ($current_expert && friendship_params.value?($current_expert.id))
+      #@newf = $current_expert.friendships.build(:friend_id => @friendship.friend_id)
+      #@newinvf = $current_expert.inverse_friendships.build(:expert_id => @friendship.friend_id)
+    #else
       
       @cur_ex = Expert.find(@friendship.expert_id)
       @newf = @cur_ex.friendships.build(:friend_id => @friendship.friend_id)
       @newinvf = @cur_ex.inverse_friendships.build(:expert_id => @friendship.friend_id)
-    end
+    #end
     
     
     
