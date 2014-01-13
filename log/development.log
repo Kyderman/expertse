@@ -21601,3 +21601,115 @@ Processing by ExpertsController#index as HTML
   Rendered layouts/_navigation.html.erb (1.4ms)
   Rendered layouts/_messages.html.erb (0.2ms)
 Completed 200 OK in 34ms (Views: 30.0ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-12 23:53:35 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ExpertsController#index as HTML
+  [1m[35mExpert Load (0.9ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36m (4.3ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 3]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 4]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 5]]
+  Rendered experts/index.html.erb within layouts/application (65.4ms)
+  Rendered layouts/_navigation_links.html.erb (1.2ms)
+  Rendered layouts/_navigation.html.erb (3.3ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+Completed 200 OK in 337ms (Views: 286.7ms | ActiveRecord: 12.3ms)
+
+
+Started GET "/experts/3/set_current_expert" for 127.0.0.1 at 2014-01-12 23:53:39 +0000
+Processing by ExpertsController#set_current_expert as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mExpert Load (1.3ms)[0m  SELECT "experts".* FROM "experts" WHERE "experts"."id" = $1 LIMIT 1  [["id", "3"]]
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 7ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-12 23:53:39 +0000
+Processing by ExpertsController#index as HTML
+  [1m[36mExpert Load (0.6ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 3]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 4]]
+  [1m[35mFriendship Load (1.3ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."expert_id" = $1 AND "friendships"."friend_id" = 4 ORDER BY "friendships"."id" ASC LIMIT 1  [["expert_id", 3]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 5]]
+  [1m[35mFriendship Load (1.1ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."expert_id" = $1 AND "friendships"."friend_id" = 5 ORDER BY "friendships"."id" ASC LIMIT 1  [["expert_id", 3]]
+  Rendered experts/index.html.erb within layouts/application (19.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 41ms (Views: 35.0ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/friendships?friendship%5Bexpert_id%5D=3&friendship%5Bfriend_id%5D=4" for 127.0.0.1 at 2014-01-12 23:53:41 +0000
+Processing by FriendshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"VzGVrz0tJvcCB1Sun6bKHTKQ371vBkGTyAM86YDUaqA=", "friendship"=>{"expert_id"=>"3", "friend_id"=>"4"}}
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO "friendships" ("created_at", "expert_id", "friend_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Sun, 12 Jan 2014 23:53:41 UTC +00:00], ["expert_id", 3], ["friend_id", 4], ["updated_at", Sun, 12 Jan 2014 23:53:41 UTC +00:00]]
+  [1m[36m (17.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "friendships" ("created_at", "expert_id", "friend_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Sun, 12 Jan 2014 23:53:41 UTC +00:00], ["expert_id", 4], ["friend_id", 3], ["updated_at", Sun, 12 Jan 2014 23:53:41 UTC +00:00]]
+  [1m[35m (8.4ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 118ms (ActiveRecord: 30.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-12 23:53:41 +0000
+Processing by ExpertsController#index as HTML
+  [1m[36mExpert Load (0.6ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 3]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 4]]
+  [1m[35mFriendship Load (0.5ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."expert_id" = $1 AND "friendships"."friend_id" = 4 ORDER BY "friendships"."id" ASC LIMIT 1  [["expert_id", 3]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 5]]
+  [1m[35mFriendship Load (0.5ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."expert_id" = $1 AND "friendships"."friend_id" = 5 ORDER BY "friendships"."id" ASC LIMIT 1  [["expert_id", 3]]
+  Rendered experts/index.html.erb within layouts/application (18.3ms)
+  Rendered layouts/_navigation_links.html.erb (1.4ms)
+  Rendered layouts/_navigation.html.erb (3.3ms)
+  Rendered layouts/_messages.html.erb (1.4ms)
+Completed 200 OK in 42ms (Views: 37.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/experts/3/remove_current_expert" for 127.0.0.1 at 2014-01-12 23:53:45 +0000
+Processing by ExpertsController#remove_current_expert as HTML
+  Parameters: {"id"=>"3"}
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-12 23:53:45 +0000
+Processing by ExpertsController#index as HTML
+  [1m[36mExpert Load (0.6ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 3]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 4]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 5]]
+  Rendered experts/index.html.erb within layouts/application (10.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 28ms (Views: 25.1ms | ActiveRecord: 2.2ms)
+
+
+Started DELETE "/experts/3" for 127.0.0.1 at 2014-01-12 23:53:47 +0000
+Processing by ExpertsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VzGVrz0tJvcCB1Sun6bKHTKQ371vBkGTyAM86YDUaqA=", "id"=>"3"}
+  [1m[36mExpert Load (0.8ms)[0m  [1mSELECT "experts".* FROM "experts" WHERE "experts"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mFriendship Load (1.0ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 3]]
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "friendships" WHERE "friendships"."id" = $1  [["id", 74]]
+  [1m[36mFriendship Load (0.9ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."friend_id" = $1[0m  [["friend_id", 3]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "friendships" WHERE "friendships"."id" = $1  [["id", 75]]
+  [1m[36mSQL (0.7ms)[0m  [1mDELETE FROM "experts" WHERE "experts"."id" = $1[0m  [["id", 3]]
+  [1m[35m (22.4ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/experts
+Completed 302 Found in 39ms (ActiveRecord: 27.6ms)
+
+
+Started GET "/experts" for 127.0.0.1 at 2014-01-12 23:53:47 +0000
+Processing by ExpertsController#index as HTML
+  [1m[36mExpert Load (0.6ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 4]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 5]]
+  Rendered experts/index.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 26ms (Views: 23.2ms | ActiveRecord: 1.6ms)
