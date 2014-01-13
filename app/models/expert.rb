@@ -8,6 +8,12 @@ class Expert < ActiveRecord::Base
   
   has_many :tags
   
+  def fullname
+    "#{firstname} #{surname}"
+  end
+  
+  
+  
   
   
 end

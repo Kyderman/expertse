@@ -23466,3 +23466,2162 @@ Processing by ExpertsController#index as HTML
   Rendered layouts/_navigation.html.erb (2.3ms)
   Rendered layouts/_messages.html.erb (0.2ms)
 Completed 200 OK in 97ms (Views: 91.8ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 02:19:39 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ExpertsController#index as HTML
+  [1m[35mExpert Load (0.9ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36m (4.3ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 4]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 5]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 7]]
+  Rendered experts/index.html.erb within layouts/application (79.5ms)
+  Rendered layouts/_navigation_links.html.erb (1.2ms)
+  Rendered layouts/_navigation.html.erb (3.1ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 372ms (Views: 321.9ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/experts/new" for 127.0.0.1 at 2014-01-13 02:19:43 +0000
+Processing by ExpertsController#new as HTML
+  Rendered experts/_form.html.erb (95.7ms)
+  Rendered experts/new.html.erb within layouts/application (97.9ms)
+  Rendered layouts/_navigation_links.html.erb (1.2ms)
+  Rendered layouts/_navigation.html.erb (3.1ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 118ms (Views: 117.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 02:28:03 +0000
+Processing by ExpertsController#index as HTML
+  [1m[35mExpert Load (0.9ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 4]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 5]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 7]]
+  Rendered experts/index.html.erb within layouts/application (15.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 31.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/friendships" for 127.0.0.1 at 2014-01-13 02:28:06 +0000
+Processing by FriendshipsController#index as HTML
+  [1m[35mFriendship Load (0.7ms)[0m  SELECT "friendships".* FROM "friendships"
+  Rendered friendships/index.html.erb within layouts/application (23.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 43ms (Views: 40.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-13 02:28:08 +0000
+Processing by FriendshipsController#new as HTML
+  Rendered friendships/_form.html.erb (66.6ms)
+  Rendered friendships/new.html.erb within layouts/application (68.7ms)
+Completed 500 Internal Server Error in 72ms
+
+NoMethodError - undefined method `collection' for #<SimpleForm::FormBuilder:0x007fb8a00a8b28>:
+  app/views/friendships/_form.html.erb:5:in `block in _app_views_friendships__form_html_erb__4103623711558007235_70215467856640'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:38:in `block in capture'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:200:in `with_output_buffer'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:38:in `capture'
+  actionpack (4.0.0) lib/action_view/helpers/form_helper.rb:435:in `form_for'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:22:in `block in simple_form_for'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:41:in `with_simple_form_field_error_proc'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:21:in `simple_form_for'
+  app/views/friendships/_form.html.erb:1:in `_app_views_friendships__form_html_erb__4103623711558007235_70215467856640'
+  actionpack (4.0.0) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:306:in `render_partial'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:279:in `block in render'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:278:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+  actionpack (4.0.0) lib/action_view/helpers/rendering_helper.rb:27:in `render'
+  app/views/friendships/new.html.erb:3:in `_app_views_friendships_new_html_erb__878610510676404135_70215467835720'
+  actionpack (4.0.0) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.0) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:413:in `_run__2057051436735169547__process_action__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.0) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__409563650434135242__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-13 02:28:08 +0000
+Processing by FriendshipsController#new as HTML
+  Rendered friendships/_form.html.erb (18.5ms)
+  Rendered friendships/new.html.erb within layouts/application (20.6ms)
+Completed 500 Internal Server Error in 24ms
+
+NoMethodError - undefined method `collection' for #<SimpleForm::FormBuilder:0x007fb8ac47d288>:
+  app/views/friendships/_form.html.erb:5:in `block in _app_views_friendships__form_html_erb__4103623711558007235_70215570544880'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:38:in `block in capture'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:200:in `with_output_buffer'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:38:in `capture'
+  actionpack (4.0.0) lib/action_view/helpers/form_helper.rb:435:in `form_for'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:22:in `block in simple_form_for'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:41:in `with_simple_form_field_error_proc'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:21:in `simple_form_for'
+  app/views/friendships/_form.html.erb:1:in `_app_views_friendships__form_html_erb__4103623711558007235_70215570544880'
+  actionpack (4.0.0) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:306:in `render_partial'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:279:in `block in render'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:278:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+  actionpack (4.0.0) lib/action_view/helpers/rendering_helper.rb:27:in `render'
+  app/views/friendships/new.html.erb:3:in `_app_views_friendships_new_html_erb__878610510676404135_70215570468140'
+  actionpack (4.0.0) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.0) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:413:in `_run__2057051436735169547__process_action__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.0) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__409563650434135242__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/70215571013800/variables" for 127.0.0.1 at 2014-01-13 02:28:08 +0000
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-13 02:35:10 +0000
+Processing by FriendshipsController#new as HTML
+  Rendered friendships/_form.html.erb (4.3ms)
+  Rendered friendships/new.html.erb within layouts/application (5.4ms)
+Completed 500 Internal Server Error in 9ms
+
+NoMethodError - undefined method `+' for :firstname:Symbol:
+  app/views/friendships/_form.html.erb:5:in `block in _app_views_friendships__form_html_erb__4103623711558007235_70215570519680'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:38:in `block in capture'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:200:in `with_output_buffer'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:38:in `capture'
+  actionpack (4.0.0) lib/action_view/helpers/form_helper.rb:435:in `form_for'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:22:in `block in simple_form_for'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:41:in `with_simple_form_field_error_proc'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:21:in `simple_form_for'
+  app/views/friendships/_form.html.erb:1:in `_app_views_friendships__form_html_erb__4103623711558007235_70215570519680'
+  actionpack (4.0.0) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:306:in `render_partial'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:279:in `block in render'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:278:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+  actionpack (4.0.0) lib/action_view/helpers/rendering_helper.rb:27:in `render'
+  app/views/friendships/new.html.erb:3:in `_app_views_friendships_new_html_erb__878610510676404135_70215570468140'
+  actionpack (4.0.0) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.0) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:413:in `_run__2057051436735169547__process_action__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.0) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__409563650434135242__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/70215570613300/variables" for 127.0.0.1 at 2014-01-13 02:35:10 +0000
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-13 02:35:48 +0000
+Processing by FriendshipsController#new as HTML
+  Rendered friendships/_form.html.erb (4.8ms)
+  Rendered friendships/new.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 10ms
+
+NoMethodError - undefined method `firstname' for #<Class:0x000000025a06e8>:
+  activerecord (4.0.0) lib/active_record/dynamic_matchers.rb:22:in `method_missing'
+  app/views/friendships/_form.html.erb:5:in `block in _app_views_friendships__form_html_erb__4103623711558007235_32284160'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:38:in `block in capture'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:200:in `with_output_buffer'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:38:in `capture'
+  actionpack (4.0.0) lib/action_view/helpers/form_helper.rb:435:in `form_for'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:22:in `block in simple_form_for'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:41:in `with_simple_form_field_error_proc'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:21:in `simple_form_for'
+  app/views/friendships/_form.html.erb:1:in `_app_views_friendships__form_html_erb__4103623711558007235_32284160'
+  actionpack (4.0.0) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:306:in `render_partial'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:279:in `block in render'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:278:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+  actionpack (4.0.0) lib/action_view/helpers/rendering_helper.rb:27:in `render'
+  app/views/friendships/new.html.erb:3:in `_app_views_friendships_new_html_erb__878610510676404135_70215570468140'
+  actionpack (4.0.0) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.0) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:413:in `_run__2057051436735169547__process_action__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.0) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__409563650434135242__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/33917620/variables" for 127.0.0.1 at 2014-01-13 02:35:48 +0000
+
+
+Started POST "/__better_errors/33917620/variables" for 127.0.0.1 at 2014-01-13 02:35:51 +0000
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-13 02:36:02 +0000
+Processing by FriendshipsController#new as HTML
+  Rendered friendships/_form.html.erb (5.0ms)
+  Rendered friendships/new.html.erb within layouts/application (6.4ms)
+Completed 500 Internal Server Error in 10ms
+
+NoMethodError - undefined method `surname' for #<Class:0x000000025a06e8>:
+  activerecord (4.0.0) lib/active_record/dynamic_matchers.rb:22:in `method_missing'
+  app/views/friendships/_form.html.erb:5:in `block in _app_views_friendships__form_html_erb__4103623711558007235_70215570766160'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:38:in `block in capture'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:200:in `with_output_buffer'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:38:in `capture'
+  actionpack (4.0.0) lib/action_view/helpers/form_helper.rb:435:in `form_for'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:22:in `block in simple_form_for'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:41:in `with_simple_form_field_error_proc'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:21:in `simple_form_for'
+  app/views/friendships/_form.html.erb:1:in `_app_views_friendships__form_html_erb__4103623711558007235_70215570766160'
+  actionpack (4.0.0) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:306:in `render_partial'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:279:in `block in render'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:278:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+  actionpack (4.0.0) lib/action_view/helpers/rendering_helper.rb:27:in `render'
+  app/views/friendships/new.html.erb:3:in `_app_views_friendships_new_html_erb__878610510676404135_70215570468140'
+  actionpack (4.0.0) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.0) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:413:in `_run__2057051436735169547__process_action__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.0) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__409563650434135242__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/70215570935000/variables" for 127.0.0.1 at 2014-01-13 02:36:02 +0000
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-13 02:36:19 +0000
+Processing by FriendshipsController#new as HTML
+ERROR: compiling _app_views_friendships__form_html_erb__4103623711558007235_26187720 RAISED /home/kyle/Workspace/expertse/app/views/friendships/_form.html.erb:5: syntax error, unexpected ':', expecting =>
+... => Expert.all, :label_method :surname, :value_method => :id...
+...                               ^
+/home/kyle/Workspace/expertse/app/views/friendships/_form.html.erb:5: syntax error, unexpected =>, expecting :: or '[' or '.'
+...thod :surname, :value_method => :id );@output_buffer.safe_ap...
+...                               ^
+Function body:           def _app_views_friendships__form_html_erb__4103623711558007235_26187720(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "friendships/_form";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.append=  simple_form_for(@friendship) do |f| @output_buffer.safe_append='
+  ';@output_buffer.append=( f.error_notification );@output_buffer.safe_append='
+
+  <div class="form-inputs">
+    ';@output_buffer.append=( f.association :expert_id, :collection => Expert.all, :label_method :surname, :value_method => :id );@output_buffer.safe_append='
+    
+    ';@output_buffer.append=( f.input :friend_id );@output_buffer.safe_append='
+  </div>
+
+  <div class="form-actions">
+    ';@output_buffer.append=( f.button :submit );@output_buffer.safe_append='
+  </div>
+'; end 
+@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/template.rb:299:in `module_eval'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/template.rb:299:in `compile'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/template.rb:248:in `block in compile!'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/template.rb:236:in `synchronize'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/template.rb:236:in `compile!'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/template.rb:142:in `block in render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications.rb:161:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/template.rb:141:in `render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/partial_renderer.rb:306:in `render_partial'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/partial_renderer.rb:279:in `block in render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/partial_renderer.rb:278:in `render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:47:in `render_partial'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/helpers/rendering_helper.rb:27:in `render'
+/home/kyle/Workspace/expertse/app/views/friendships/new.html.erb:3:in `_app_views_friendships_new_html_erb__878610510676404135_70215570468140'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/template.rb:143:in `block in render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications.rb:161:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/template.rb:141:in `render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:17:in `render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:413:in `_run__2057051436735169547__process_action__callbacks'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal.rb:195:in `dispatch'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal.rb:231:in `block in action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:80:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:48:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:71:in `block in call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:59:in `each'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:59:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:655:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/flash.rb:241:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/cookies.rb:486:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activerecord-4.0.0/lib/active_record/query_cache.rb:36:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activerecord-4.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activerecord-4.0.0/lib/active_record/migration.rb:369:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:373:in `_run__409563650434135242__call__callbacks'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/reloader.rb:64:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/better_errors-1.1.0/lib/better_errors/middleware.rb:84:in `protected_app_call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/better_errors-1.1.0/lib/better_errors/middleware.rb:79:in `better_errors_call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/better_errors-1.1.0/lib/better_errors/middleware.rb:56:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/railties-4.0.0/lib/rails/rack/logger.rb:38:in `call_app'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/railties-4.0.0/lib/rails/rack/logger.rb:21:in `block in call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:25:in `tagged'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:67:in `tagged'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/railties-4.0.0/lib/rails/rack/logger.rb:21:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/quiet_assets-1.0.2/lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/static.rb:64:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/railties-4.0.0/lib/rails/engine.rb:511:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/railties-4.0.0/lib/rails/application.rb:97:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+/home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+/home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+  Rendered friendships/_form.html.erb (5.0ms)
+  Rendered friendships/new.html.erb within layouts/application (6.1ms)
+Completed 500 Internal Server Error in 10ms
+
+SyntaxError - /home/kyle/Workspace/expertse/app/views/friendships/_form.html.erb:5: syntax error, unexpected ':', expecting =>
+... => Expert.all, :label_method :surname, :value_method => :id...
+...                               ^
+/home/kyle/Workspace/expertse/app/views/friendships/_form.html.erb:5: syntax error, unexpected =>, expecting :: or '[' or '.'
+...thod :surname, :value_method => :id );@output_buffer.safe_ap...
+...                               ^:
+  actionpack (4.0.0) lib/action_view/template.rb:299:in `'
+  actionpack (4.0.0) lib/action_view/template.rb:299:in `compile'
+  actionpack (4.0.0) lib/action_view/template.rb:248:in `block in compile!'
+  actionpack (4.0.0) lib/action_view/template.rb:236:in `compile!'
+  actionpack (4.0.0) lib/action_view/template.rb:142:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:306:in `render_partial'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:279:in `block in render'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:278:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+  actionpack (4.0.0) lib/action_view/helpers/rendering_helper.rb:27:in `render'
+  app/views/friendships/new.html.erb:3:in `_app_views_friendships_new_html_erb__878610510676404135_70215570468140'
+  actionpack (4.0.0) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.0) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:413:in `_run__2057051436735169547__process_action__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.0) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__409563650434135242__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/29877320/variables" for 127.0.0.1 at 2014-01-13 02:36:19 +0000
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-13 02:37:27 +0000
+Processing by FriendshipsController#new as HTML
+  Rendered friendships/_form.html.erb (4.4ms)
+  Rendered friendships/new.html.erb within layouts/application (6.4ms)
+Completed 500 Internal Server Error in 13ms
+
+RuntimeError - Association :expert_id not found:
+  simple_form (3.0.1) lib/simple_form/form_builder.rb:183:in `association'
+  app/views/friendships/_form.html.erb:5:in `block in _app_views_friendships__form_html_erb__4103623711558007235_33876260'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:38:in `block in capture'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:200:in `with_output_buffer'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:38:in `capture'
+  actionpack (4.0.0) lib/action_view/helpers/form_helper.rb:435:in `form_for'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:22:in `block in simple_form_for'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:41:in `with_simple_form_field_error_proc'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:21:in `simple_form_for'
+  app/views/friendships/_form.html.erb:1:in `_app_views_friendships__form_html_erb__4103623711558007235_33876260'
+  actionpack (4.0.0) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:306:in `render_partial'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:279:in `block in render'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:278:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+  actionpack (4.0.0) lib/action_view/helpers/rendering_helper.rb:27:in `render'
+  app/views/friendships/new.html.erb:3:in `_app_views_friendships_new_html_erb__878610510676404135_70215570468140'
+  actionpack (4.0.0) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.0) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:413:in `_run__2057051436735169547__process_action__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.0) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__409563650434135242__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/34828420/variables" for 127.0.0.1 at 2014-01-13 02:37:28 +0000
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-13 02:37:38 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[36mExpert Load (0.7ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (97.5ms)
+  Rendered friendships/new.html.erb within layouts/application (98.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 116ms (Views: 114.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-13 02:38:06 +0000
+Processing by FriendshipsController#new as HTML
+  Rendered friendships/_form.html.erb (4.6ms)
+  Rendered friendships/new.html.erb within layouts/application (5.7ms)
+Completed 500 Internal Server Error in 12ms
+
+NoMethodError - undefined method `+' for :surname:Symbol:
+  app/views/friendships/_form.html.erb:5:in `block in _app_views_friendships__form_html_erb__4103623711558007235_70215401111820'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:38:in `block in capture'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:200:in `with_output_buffer'
+  actionpack (4.0.0) lib/action_view/helpers/capture_helper.rb:38:in `capture'
+  actionpack (4.0.0) lib/action_view/helpers/form_helper.rb:435:in `form_for'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:22:in `block in simple_form_for'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:41:in `with_simple_form_field_error_proc'
+  simple_form (3.0.1) lib/simple_form/action_view_extensions/form_helper.rb:21:in `simple_form_for'
+  app/views/friendships/_form.html.erb:1:in `_app_views_friendships__form_html_erb__4103623711558007235_70215401111820'
+  actionpack (4.0.0) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:306:in `render_partial'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:279:in `block in render'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:278:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+  actionpack (4.0.0) lib/action_view/helpers/rendering_helper.rb:27:in `render'
+  app/views/friendships/new.html.erb:3:in `_app_views_friendships_new_html_erb__878610510676404135_70215570468140'
+  actionpack (4.0.0) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.0) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:413:in `_run__2057051436735169547__process_action__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.0) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__409563650434135242__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/70215333596860/variables" for 127.0.0.1 at 2014-01-13 02:38:06 +0000
+
+
+Started POST "/__better_errors/70215333596860/eval" for 127.0.0.1 at 2014-01-13 02:38:11 +0000
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-13 02:38:41 +0000
+Processing by FriendshipsController#new as HTML
+ERROR: compiling _app_views_friendships__form_html_erb__4103623711558007235_13207820 RAISED /home/kyle/Workspace/expertse/app/views/friendships/_form.html.erb:5: syntax error, unexpected =>, expecting ')'
+...l, :label_method => :surname => :firstname, :value_method =>...
+...                               ^
+Function body:           def _app_views_friendships__form_html_erb__4103623711558007235_13207820(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "friendships/_form";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.append=  simple_form_for(@friendship) do |f| @output_buffer.safe_append='
+  ';@output_buffer.append=( f.error_notification );@output_buffer.safe_append='
+
+  <div class="form-inputs">
+    ';@output_buffer.append=( f.association :expert, :collection => Expert.all, :label_method => :surname => :firstname, :value_method => :id );@output_buffer.safe_append='
+    
+    ';@output_buffer.append=( f.input :friend_id );@output_buffer.safe_append='
+  </div>
+
+  <div class="form-actions">
+    ';@output_buffer.append=( f.button :submit );@output_buffer.safe_append='
+  </div>
+'; end 
+@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/template.rb:299:in `module_eval'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/template.rb:299:in `compile'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/template.rb:248:in `block in compile!'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/template.rb:236:in `synchronize'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/template.rb:236:in `compile!'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/template.rb:142:in `block in render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications.rb:161:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/template.rb:141:in `render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/partial_renderer.rb:306:in `render_partial'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/partial_renderer.rb:279:in `block in render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/partial_renderer.rb:278:in `render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:47:in `render_partial'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/helpers/rendering_helper.rb:27:in `render'
+/home/kyle/Workspace/expertse/app/views/friendships/new.html.erb:3:in `_app_views_friendships_new_html_erb__878610510676404135_70215570468140'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/template.rb:143:in `block in render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications.rb:161:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/template.rb:141:in `render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:17:in `render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:413:in `_run__2057051436735169547__process_action__callbacks'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal.rb:195:in `dispatch'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_controller/metal.rb:231:in `block in action'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:80:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:48:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:71:in `block in call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:59:in `each'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:59:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:655:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/flash.rb:241:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/cookies.rb:486:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activerecord-4.0.0/lib/active_record/query_cache.rb:36:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activerecord-4.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activerecord-4.0.0/lib/active_record/migration.rb:369:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:373:in `_run__409563650434135242__call__callbacks'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/reloader.rb:64:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/better_errors-1.1.0/lib/better_errors/middleware.rb:84:in `protected_app_call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/better_errors-1.1.0/lib/better_errors/middleware.rb:79:in `better_errors_call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/better_errors-1.1.0/lib/better_errors/middleware.rb:56:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/railties-4.0.0/lib/rails/rack/logger.rb:38:in `call_app'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/railties-4.0.0/lib/rails/rack/logger.rb:21:in `block in call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:25:in `tagged'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:67:in `tagged'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/railties-4.0.0/lib/rails/rack/logger.rb:21:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/quiet_assets-1.0.2/lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/activesupport-4.0.0/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/actionpack-4.0.0/lib/action_dispatch/middleware/static.rb:64:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/railties-4.0.0/lib/rails/engine.rb:511:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/railties-4.0.0/lib/rails/application.rb:97:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+/home/kyle/.rvm/gems/ruby-2.0.0-p247@expertse/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+/home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+/home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+  Rendered friendships/_form.html.erb (8.9ms)
+  Rendered friendships/new.html.erb within layouts/application (9.9ms)
+Completed 500 Internal Server Error in 61ms
+
+SyntaxError - /home/kyle/Workspace/expertse/app/views/friendships/_form.html.erb:5: syntax error, unexpected =>, expecting ')'
+...l, :label_method => :surname => :firstname, :value_method =>...
+...                               ^:
+  actionpack (4.0.0) lib/action_view/template.rb:299:in `'
+  actionpack (4.0.0) lib/action_view/template.rb:299:in `compile'
+  actionpack (4.0.0) lib/action_view/template.rb:248:in `block in compile!'
+  actionpack (4.0.0) lib/action_view/template.rb:236:in `compile!'
+  actionpack (4.0.0) lib/action_view/template.rb:142:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:306:in `render_partial'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:279:in `block in render'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/partial_renderer.rb:278:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+  actionpack (4.0.0) lib/action_view/helpers/rendering_helper.rb:27:in `render'
+  app/views/friendships/new.html.erb:3:in `_app_views_friendships_new_html_erb__878610510676404135_70215570468140'
+  actionpack (4.0.0) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.0) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:413:in `_run__2057051436735169547__process_action__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.0) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__409563650434135242__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/kyle/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/19180460/variables" for 127.0.0.1 at 2014-01-13 02:38:42 +0000
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-13 02:39:18 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.8ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered friendships/_form.html.erb (17.0ms)
+  Rendered friendships/new.html.erb within layouts/application (18.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 37ms (Views: 34.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-13 02:41:27 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[36mExpert Load (0.7ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (122.2ms)
+  Rendered friendships/new.html.erb within layouts/application (123.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 149ms (Views: 137.4ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-13 02:41:48 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.6ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered friendships/_form.html.erb (64.9ms)
+  Rendered friendships/new.html.erb within layouts/application (66.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 154ms (Views: 142.9ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-13 02:42:46 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[36mExpert Load (0.7ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered friendships/_form.html.erb (79.1ms)
+  Rendered friendships/new.html.erb within layouts/application (80.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 108ms (Views: 96.6ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 02:42:52 +0000
+Processing by ExpertsController#index as HTML
+  [1m[36mExpert Load (0.8ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 4]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 5]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 7]]
+  Rendered experts/index.html.erb within layouts/application (16.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 40ms (Views: 35.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/friendships" for 127.0.0.1 at 2014-01-13 02:42:58 +0000
+Processing by FriendshipsController#index as HTML
+  [1m[36mFriendship Load (0.7ms)[0m  [1mSELECT "friendships".* FROM "friendships"[0m
+  Rendered friendships/index.html.erb within layouts/application (4.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 23ms (Views: 21.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friendships/78" for 127.0.0.1 at 2014-01-13 02:42:59 +0000
+Processing by FriendshipsController#show as HTML
+  Parameters: {"id"=>"78"}
+  [1m[35mFriendship Load (1.1ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."id" = $1 LIMIT 1  [["id", "78"]]
+  Rendered friendships/show.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 24ms (Views: 19.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/friendships" for 127.0.0.1 at 2014-01-13 02:43:01 +0000
+Processing by FriendshipsController#index as HTML
+  [1m[36mFriendship Load (0.7ms)[0m  [1mSELECT "friendships".* FROM "friendships"[0m
+  Rendered friendships/index.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 22ms (Views: 20.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friendships/78/edit" for 127.0.0.1 at 2014-01-13 02:43:02 +0000
+Processing by FriendshipsController#edit as HTML
+  Parameters: {"id"=>"78"}
+  [1m[35mFriendship Load (1.3ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."id" = $1 LIMIT 1  [["id", "78"]]
+  [1m[36mExpert Load (0.7ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered friendships/_form.html.erb (16.4ms)
+  Rendered friendships/edit.html.erb within layouts/application (19.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (2.3ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 46ms (Views: 41.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 02:43:04 +0000
+Processing by ExpertsController#index as HTML
+  [1m[36mExpert Load (0.6ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 4]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 5]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 7]]
+  Rendered experts/index.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 27ms (Views: 24.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/friendships" for 127.0.0.1 at 2014-01-13 02:43:12 +0000
+Processing by FriendshipsController#index as HTML
+  [1m[36mFriendship Load (0.6ms)[0m  [1mSELECT "friendships".* FROM "friendships"[0m
+  Rendered friendships/index.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/friendships/79/edit" for 127.0.0.1 at 2014-01-13 02:43:15 +0000
+Processing by FriendshipsController#edit as HTML
+  Parameters: {"id"=>"79"}
+  [1m[35mFriendship Load (0.5ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."id" = $1 LIMIT 1  [["id", "79"]]
+  [1m[36mExpert Load (0.6ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered friendships/_form.html.erb (11.3ms)
+  Rendered friendships/edit.html.erb within layouts/application (12.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 32ms (Views: 29.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 02:43:25 +0000
+Processing by ExpertsController#index as HTML
+  [1m[36mExpert Load (0.7ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35m (57.1ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 4]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 5]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 7]]
+  Rendered experts/index.html.erb within layouts/application (72.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 96ms (Views: 36.3ms | ActiveRecord: 58.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 02:43:36 +0000
+Processing by ExpertsController#index as HTML
+  [1m[36mExpert Load (0.6ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 4]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 5]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 7]]
+  Rendered experts/index.html.erb within layouts/application (10.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 32ms (Views: 28.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 02:43:39 +0000
+Processing by ExpertsController#index as HTML
+  [1m[36mExpert Load (0.7ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 4]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 5]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 7]]
+  Rendered experts/index.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 26ms (Views: 23.3ms | ActiveRecord: 2.1ms)
+
+
+Started DELETE "/experts/4" for 127.0.0.1 at 2014-01-13 02:43:43 +0000
+Processing by ExpertsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VzGVrz0tJvcCB1Sun6bKHTKQ371vBkGTyAM86YDUaqA=", "id"=>"4"}
+  [1m[36mExpert Load (1.2ms)[0m  [1mSELECT "experts".* FROM "experts" WHERE "experts"."id" = $1 LIMIT 1[0m  [["id", "4"]]
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36mFriendship Load (1.1ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 4]]
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "friendships" WHERE "friendships"."id" = $1  [["id", 78]]
+  [1m[36mFriendship Load (0.9ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."friend_id" = $1[0m  [["friend_id", 4]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "friendships" WHERE "friendships"."id" = $1  [["id", 79]]
+  [1m[36mSQL (0.7ms)[0m  [1mDELETE FROM "experts" WHERE "experts"."id" = $1[0m  [["id", 4]]
+  [1m[35m (34.2ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/experts
+Completed 302 Found in 55ms (ActiveRecord: 40.0ms)
+
+
+Started GET "/experts" for 127.0.0.1 at 2014-01-13 02:43:43 +0000
+Processing by ExpertsController#index as HTML
+  [1m[36mExpert Load (0.7ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 5]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 7]]
+  Rendered experts/index.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 27ms (Views: 23.8ms | ActiveRecord: 1.8ms)
+
+
+Started DELETE "/experts/5" for 127.0.0.1 at 2014-01-13 02:43:46 +0000
+Processing by ExpertsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VzGVrz0tJvcCB1Sun6bKHTKQ371vBkGTyAM86YDUaqA=", "id"=>"5"}
+  [1m[35mExpert Load (1.9ms)[0m  SELECT "experts".* FROM "experts" WHERE "experts"."id" = $1 LIMIT 1  [["id", "5"]]
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mFriendship Load (0.5ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 5]]
+  [1m[36mFriendship Load (0.5ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."friend_id" = $1[0m  [["friend_id", 5]]
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "experts" WHERE "experts"."id" = $1  [["id", 5]]
+  [1m[36m (32.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/experts
+Completed 302 Found in 45ms (ActiveRecord: 36.8ms)
+
+
+Started GET "/experts" for 127.0.0.1 at 2014-01-13 02:43:46 +0000
+Processing by ExpertsController#index as HTML
+  [1m[35mExpert Load (2.7ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 7]]
+  Rendered experts/index.html.erb within layouts/application (7.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 28ms (Views: 23.3ms | ActiveRecord: 3.6ms)
+
+
+Started DELETE "/experts/7" for 127.0.0.1 at 2014-01-13 02:43:49 +0000
+Processing by ExpertsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VzGVrz0tJvcCB1Sun6bKHTKQ371vBkGTyAM86YDUaqA=", "id"=>"7"}
+  [1m[35mExpert Load (0.6ms)[0m  SELECT "experts".* FROM "experts" WHERE "experts"."id" = $1 LIMIT 1  [["id", "7"]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mFriendship Load (0.4ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 7]]
+  [1m[36mFriendship Load (0.5ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."friend_id" = $1[0m  [["friend_id", 7]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "experts" WHERE "experts"."id" = $1  [["id", 7]]
+  [1m[36m (46.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/experts
+Completed 302 Found in 54ms (ActiveRecord: 48.7ms)
+
+
+Started GET "/experts" for 127.0.0.1 at 2014-01-13 02:43:49 +0000
+Processing by ExpertsController#index as HTML
+  [1m[35mExpert Load (1.1ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered experts/index.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 27ms (Views: 24.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/friendships" for 127.0.0.1 at 2014-01-13 02:43:51 +0000
+Processing by FriendshipsController#index as HTML
+  [1m[36mFriendship Load (0.6ms)[0m  [1mSELECT "friendships".* FROM "friendships"[0m
+  Rendered friendships/index.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-13 02:43:53 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.7ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (11.9ms)
+  Rendered friendships/new.html.erb within layouts/application (13.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 34ms (Views: 32.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 02:43:56 +0000
+Processing by ExpertsController#index as HTML
+  [1m[35mExpert Load (0.6ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered experts/index.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/experts/new" for 127.0.0.1 at 2014-01-13 02:43:57 +0000
+Processing by ExpertsController#new as HTML
+  Rendered experts/_form.html.erb (10.3ms)
+  Rendered experts/new.html.erb within layouts/application (11.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 31ms (Views: 29.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/experts" for 127.0.0.1 at 2014-01-13 02:44:06 +0000
+Processing by ExpertsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VzGVrz0tJvcCB1Sun6bKHTKQ371vBkGTyAM86YDUaqA=", "expert"=>{"firstname"=>"kyle", "surname"=>"selman", "website"=>"http://kyleselman.co.uk"}, "commit"=>"Create Expert"}
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.8ms)[0m  INSERT INTO "experts" ("created_at", "firstname", "surname", "updated_at", "website") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:06 UTC +00:00], ["firstname", "kyle"], ["surname", "selman"], ["updated_at", Mon, 13 Jan 2014 02:44:06 UTC +00:00], ["website", "http://kyleselman.co.uk"]]
+  [1m[36m (70.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "Kyle Selman"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[35m (41.1ms)[0m  COMMIT
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "About Me"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[36m (14.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "Skills"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[35m (8.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "Experience"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[36m (14.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "Education"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[35m (8.1ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "Activities"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[36m (8.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "References"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[35m (4.9ms)[0m  COMMIT
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "Contact Me"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[36m (4.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "Languages"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[35m (7.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (57.5ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "Frameworks"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[36m (18.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "Applications"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[35m (14.7ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "Techniques"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[36m (8.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "Work Experience"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[35m (6.2ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "Projects"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[36m (8.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "University of Bath"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[35m (6.9ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "Weston College"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[36m (6.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "Wyvern Community School"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[35m (4.6ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "Somerset County Pool Team"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[36m (7.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "University of Bath"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[35m (6.7ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "Professor Guy McCusker"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[36m (8.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "Peter Fealey"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[35m (4.9ms)[0m  COMMIT
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00], ["expert_id", 8], ["tag", "Mr Darren Selman"], ["updated_at", Mon, 13 Jan 2014 02:44:07 UTC +00:00]]
+  [1m[36m (4.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mSQL (2.3ms)[0m  [1mUPDATE "experts" SET "website" = $1, "updated_at" = $2 WHERE "experts"."id" = 8[0m  [["website", "http://goo.gl/rVyvSL"], ["updated_at", Mon, 13 Jan 2014 02:44:08 UTC +00:00]]
+  [1m[35m (41.2ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/experts/8
+Completed 302 Found in 1175ms (ActiveRecord: 428.8ms)
+
+
+Started GET "/experts/8" for 127.0.0.1 at 2014-01-13 02:44:08 +0000
+Processing by ExpertsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mExpert Load (0.6ms)[0m  [1mSELECT "experts".* FROM "experts" WHERE "experts"."id" = $1 LIMIT 1[0m  [["id", "8"]]
+  Rendered experts/show.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 23ms (Views: 19.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/experts" for 127.0.0.1 at 2014-01-13 02:44:10 +0000
+Processing by ExpertsController#index as HTML
+  [1m[35mExpert Load (0.6ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 8]]
+  Rendered experts/index.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 26ms (Views: 23.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/experts/new" for 127.0.0.1 at 2014-01-13 02:44:11 +0000
+Processing by ExpertsController#new as HTML
+  Rendered experts/_form.html.erb (9.0ms)
+  Rendered experts/new.html.erb within layouts/application (10.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/experts" for 127.0.0.1 at 2014-01-13 02:44:20 +0000
+Processing by ExpertsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VzGVrz0tJvcCB1Sun6bKHTKQ371vBkGTyAM86YDUaqA=", "expert"=>{"firstname"=>"john", "surname"=>"smith", "website"=>"http://kyleselman.co.uk"}, "commit"=>"Create Expert"}
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "experts" ("created_at", "firstname", "surname", "updated_at", "website") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:20 UTC +00:00], ["firstname", "john"], ["surname", "smith"], ["updated_at", Mon, 13 Jan 2014 02:44:20 UTC +00:00], ["website", "http://kyleselman.co.uk"]]
+  [1m[35m (81.6ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "Kyle Selman"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[36m (41.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "About Me"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[35m (4.5ms)[0m  COMMIT
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "Skills"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[36m (4.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  BEGIN
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "Experience"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[35m (13.7ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "Education"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[36m (8.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "Activities"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[35m (10.3ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "References"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[36m (3.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "Contact Me"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[35m (6.7ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "Languages"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[36m (4.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "Frameworks"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[35m (7.7ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "Applications"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[36m (8.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "Techniques"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[35m (7.3ms)[0m  COMMIT
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "Work Experience"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[36m (3.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "Projects"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[35m (4.6ms)[0m  COMMIT
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "University of Bath"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[36m (14.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "Weston College"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[35m (7.7ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "Wyvern Community School"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[36m (7.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "Somerset County Pool Team"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[35m (6.7ms)[0m  COMMIT
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "University of Bath"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[36m (4.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  BEGIN
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "Professor Guy McCusker"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[35m (4.7ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "Peter Fealey"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[36m (7.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00], ["expert_id", 9], ["tag", "Mr Darren Selman"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[35m (7.9ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  UPDATE "experts" SET "website" = $1, "updated_at" = $2 WHERE "experts"."id" = 9  [["website", "http://goo.gl/rVyvSL"], ["updated_at", Mon, 13 Jan 2014 02:44:21 UTC +00:00]]
+  [1m[36m (40.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/experts/9
+Completed 302 Found in 1036ms (ActiveRecord: 350.5ms)
+
+
+Started GET "/experts/9" for 127.0.0.1 at 2014-01-13 02:44:21 +0000
+Processing by ExpertsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mExpert Load (0.6ms)[0m  SELECT "experts".* FROM "experts" WHERE "experts"."id" = $1 LIMIT 1  [["id", "9"]]
+  Rendered experts/show.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 21ms (Views: 18.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 02:44:23 +0000
+Processing by ExpertsController#index as HTML
+  [1m[36mExpert Load (0.7ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 8]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 9]]
+  Rendered experts/index.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 24ms (Views: 21.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/friendships" for 127.0.0.1 at 2014-01-13 02:44:27 +0000
+Processing by FriendshipsController#index as HTML
+  [1m[35mFriendship Load (0.6ms)[0m  SELECT "friendships".* FROM "friendships"
+  Rendered friendships/index.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-13 02:44:28 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[36mExpert Load (0.6ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered friendships/_form.html.erb (11.5ms)
+  Rendered friendships/new.html.erb within layouts/application (12.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 31ms (Views: 29.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-13 02:44:46 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[36mExpert Load (0.8ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered friendships/_form.html.erb (14.9ms)
+  Rendered friendships/new.html.erb within layouts/application (16.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 39ms (Views: 36.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/friendships" for 127.0.0.1 at 2014-01-13 02:44:51 +0000
+Processing by FriendshipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VzGVrz0tJvcCB1Sun6bKHTKQ371vBkGTyAM86YDUaqA=", "friendship"=>{"expert_id"=>"8", "friend_id"=>"9"}, "commit"=>"Create Friendship"}
+  [1m[36mExpert Load (0.7ms)[0m  [1mSELECT "experts".* FROM "experts" WHERE "experts"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mExpert Load (1.2ms)[0m  [1mSELECT "experts".* FROM "experts" WHERE "experts"."id" = $1 ORDER BY "experts"."id" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mFriendship Exists (0.7ms)[0m  SELECT 1 AS one FROM "friendships" WHERE ("friendships"."expert_id" = 8 AND "friendships"."friend_id" = 9) LIMIT 1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "friendships" ("created_at", "expert_id", "friend_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Mon, 13 Jan 2014 02:44:51 UTC +00:00], ["expert_id", 8], ["friend_id", 9], ["updated_at", Mon, 13 Jan 2014 02:44:51 UTC +00:00]]
+  [1m[35m (40.9ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mExpert Load (0.6ms)[0m  SELECT "experts".* FROM "experts" WHERE "experts"."id" = $1 ORDER BY "experts"."id" ASC LIMIT 1  [["id", 9]]
+  [1m[36mFriendship Exists (1.2ms)[0m  [1mSELECT 1 AS one FROM "friendships" WHERE ("friendships"."expert_id" = 9 AND "friendships"."friend_id" = 8) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "friendships" ("created_at", "expert_id", "friend_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 13 Jan 2014 02:44:51 UTC +00:00], ["expert_id", 9], ["friend_id", 8], ["updated_at", Mon, 13 Jan 2014 02:44:51 UTC +00:00]]
+  [1m[36m (10.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 158ms (ActiveRecord: 58.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 02:44:52 +0000
+Processing by ExpertsController#index as HTML
+  [1m[35mExpert Load (0.9ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 8]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 9]]
+  Rendered experts/index.html.erb within layouts/application (10.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 31ms (Views: 27.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/friendships" for 127.0.0.1 at 2014-01-13 02:44:55 +0000
+Processing by FriendshipsController#index as HTML
+  [1m[36mFriendship Load (0.7ms)[0m  [1mSELECT "friendships".* FROM "friendships"[0m
+  Rendered friendships/index.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friendships/94/edit" for 127.0.0.1 at 2014-01-13 02:44:57 +0000
+Processing by FriendshipsController#edit as HTML
+  Parameters: {"id"=>"94"}
+  [1m[35mFriendship Load (0.8ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."id" = $1 LIMIT 1  [["id", "94"]]
+  [1m[36mExpert Load (0.7ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered friendships/_form.html.erb (14.7ms)
+  Rendered friendships/edit.html.erb within layouts/application (16.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 36ms (Views: 32.3ms | ActiveRecord: 1.5ms)

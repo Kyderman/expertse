@@ -2,8 +2,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :expert_id %>
-    <%= f.input :friend_id %>
+    <%= f.association :expert, :collection => Expert.all, :label_method => :fullname, :value_method => :id %>
+    
+    <%= f.association :friend, :collection => Expert.all, :label_method => :fullname, :value_method => :id %>
   </div>
 
   <div class="form-actions">

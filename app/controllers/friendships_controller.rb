@@ -70,7 +70,7 @@ class FriendshipsController < ApplicationController
   def destroy
     
       @cur_ex = Expert.find(@friendship.expert_id)
-      @newf = @cur_ex.inverse_friendships.where(expert_id: @friendship.friend_id, friend_id: @friendship.expert_id).first
+       @newf = @cur_ex.inverse_friendships.where(expert_id: @friendship.friend_id, friend_id: @friendship.expert_id).first
     
     
     @friendship.destroy
