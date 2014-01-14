@@ -2,7 +2,7 @@
 <%= simple_form_for @friendship, :defaults => { :input_html => { :class => "form-control" } } do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-group">
+  <div class="form-inputs">
     <%= f.association :expert, :collection => Expert.all, :label_method => :fullname, :value_method => :id %>
     
     <%= f.association :friend, :collection => Expert.all, :label_method => :fullname, :value_method => :id %>
@@ -12,3 +12,4 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+
