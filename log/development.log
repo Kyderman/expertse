@@ -29263,3 +29263,576 @@ Processing by FriendshipsController#new as HTML
   Rendered layouts/_navigation.html.erb (1.6ms)
   Rendered layouts/_messages.html.erb (0.2ms)
 Completed 200 OK in 36ms (Views: 33.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-14 01:33:30 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ExpertsController#index as HTML
+  [1m[35mExpert Load (0.9ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36m (4.6ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 8]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 9]]
+  Rendered experts/index.html.erb within layouts/application (67.7ms)
+  Rendered layouts/_navigation_links.html.erb (1.3ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 356ms (Views: 302.7ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/experts/8/set_current_expert" for 127.0.0.1 at 2014-01-14 01:33:36 +0000
+Processing by ExpertsController#set_current_expert as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mExpert Load (1.1ms)[0m  [1mSELECT "experts".* FROM "experts" WHERE "experts"."id" = $1 LIMIT 1[0m  [["id", "8"]]
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 6ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-14 01:33:36 +0000
+Processing by ExpertsController#index as HTML
+  [1m[35mExpert Load (0.7ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 8]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 9]]
+  [1m[36mFriendship Load (1.3ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."expert_id" = $1 AND "friendships"."friend_id" = 9 ORDER BY "friendships"."id" ASC LIMIT 1[0m  [["expert_id", 8]]
+  Rendered experts/index.html.erb within layouts/application (34.9ms)
+  Rendered layouts/_navigation_links.html.erb (2.2ms)
+  Rendered layouts/_navigation.html.erb (4.9ms)
+  Rendered layouts/_messages.html.erb (1.2ms)
+Completed 200 OK in 61ms (Views: 56.7ms | ActiveRecord: 3.0ms)
+
+
+Started DELETE "/friendships/93" for 127.0.0.1 at 2014-01-14 01:33:39 +0000
+Processing by FriendshipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VzGVrz0tJvcCB1Sun6bKHTKQ371vBkGTyAM86YDUaqA=", "id"=>"93"}
+  [1m[35mFriendship Load (1.2ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."id" = $1 LIMIT 1  [["id", "93"]]
+  [1m[36mExpert Load (0.6ms)[0m  [1mSELECT "experts".* FROM "experts" WHERE "experts"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mFriendship Load (1.1ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."friend_id" = $1 AND "friendships"."expert_id" = 9 AND "friendships"."friend_id" = 8 ORDER BY "friendships"."id" ASC LIMIT 1  [["friend_id", 8]]
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (39.3ms)[0m  DELETE FROM "friendships" WHERE "friendships"."id" = $1  [["id", 93]]
+  [1m[36m (185.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "friendships" WHERE "friendships"."id" = $1[0m  [["id", 94]]
+  [1m[35m (54.2ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 297ms (ActiveRecord: 283.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-14 01:33:40 +0000
+Processing by ExpertsController#index as HTML
+  [1m[36mExpert Load (1.5ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 8]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 9]]
+  [1m[35mFriendship Load (0.6ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."expert_id" = $1 AND "friendships"."friend_id" = 9 ORDER BY "friendships"."id" ASC LIMIT 1  [["expert_id", 8]]
+  Rendered experts/index.html.erb within layouts/application (13.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (2.5ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 37ms (Views: 31.9ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/friendships?friendship%5Bexpert_id%5D=8&friendship%5Bfriend_id%5D=9" for 127.0.0.1 at 2014-01-14 01:33:42 +0000
+Processing by FriendshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"VzGVrz0tJvcCB1Sun6bKHTKQ371vBkGTyAM86YDUaqA=", "friendship"=>{"expert_id"=>"8", "friend_id"=>"9"}}
+  [1m[36mExpert Load (0.7ms)[0m  [1mSELECT "experts".* FROM "experts" WHERE "experts"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mExpert Load (1.0ms)[0m  [1mSELECT "experts".* FROM "experts" WHERE "experts"."id" = $1 ORDER BY "experts"."id" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mFriendship Exists (0.7ms)[0m  SELECT 1 AS one FROM "friendships" WHERE ("friendships"."expert_id" = 8 AND "friendships"."friend_id" = 9) LIMIT 1
+  [1m[36mSQL (16.6ms)[0m  [1mINSERT INTO "friendships" ("created_at", "expert_id", "friend_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Tue, 14 Jan 2014 01:33:42 UTC +00:00], ["expert_id", 8], ["friend_id", 9], ["updated_at", Tue, 14 Jan 2014 01:33:42 UTC +00:00]]
+  [1m[35m (22.1ms)[0m  COMMIT
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35mExpert Load (1.1ms)[0m  SELECT "experts".* FROM "experts" WHERE "experts"."id" = $1 ORDER BY "experts"."id" ASC LIMIT 1  [["id", 9]]
+  [1m[36mFriendship Exists (1.2ms)[0m  [1mSELECT 1 AS one FROM "friendships" WHERE ("friendships"."expert_id" = 9 AND "friendships"."friend_id" = 8) LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "friendships" ("created_at", "expert_id", "friend_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 14 Jan 2014 01:33:42 UTC +00:00], ["expert_id", 9], ["friend_id", 8], ["updated_at", Tue, 14 Jan 2014 01:33:42 UTC +00:00]]
+  [1m[36m (7.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 138ms (ActiveRecord: 52.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-14 01:33:42 +0000
+Processing by ExpertsController#index as HTML
+  [1m[35mExpert Load (0.8ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 8]]
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 9]]
+  [1m[36mFriendship Load (0.7ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."expert_id" = $1 AND "friendships"."friend_id" = 9 ORDER BY "friendships"."id" ASC LIMIT 1[0m  [["expert_id", 8]]
+  Rendered experts/index.html.erb within layouts/application (14.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 38ms (Views: 33.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/friendships" for 127.0.0.1 at 2014-01-14 23:26:25 +0000
+Processing by FriendshipsController#index as HTML
+  [1m[35mFriendship Load (0.7ms)[0m  SELECT "friendships".* FROM "friendships"
+  Rendered friendships/index.html.erb within layouts/application (5.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:26:27 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[36mExpert Load (0.8ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered friendships/_form.html.erb (107.6ms)
+  Rendered friendships/new.html.erb within layouts/application (110.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 129ms (Views: 127.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:26:48 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[36mExpert Load (0.8ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered friendships/_form.html.erb (15.7ms)
+  Rendered friendships/new.html.erb within layouts/application (17.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.9ms)
+  Rendered layouts/_navigation.html.erb (2.1ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 38ms (Views: 35.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:27:02 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[36mExpert Load (0.7ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered friendships/_form.html.erb (14.4ms)
+  Rendered friendships/new.html.erb within layouts/application (15.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 30.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:27:26 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[36mExpert Load (0.7ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered friendships/_form.html.erb (14.7ms)
+  Rendered friendships/new.html.erb within layouts/application (15.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 33.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:27:28 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[36mExpert Load (0.7ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered friendships/_form.html.erb (13.5ms)
+  Rendered friendships/new.html.erb within layouts/application (15.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.9ms)
+  Rendered layouts/_navigation.html.erb (2.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:27:38 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[36mExpert Load (0.8ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered friendships/_form.html.erb (15.2ms)
+  Rendered friendships/new.html.erb within layouts/application (16.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 38ms (Views: 35.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:27:40 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[36mExpert Load (0.7ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered friendships/_form.html.erb (12.7ms)
+  Rendered friendships/new.html.erb within layouts/application (13.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.8ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 34ms (Views: 32.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:27:50 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[36mExpert Load (0.7ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered friendships/_form.html.erb (14.3ms)
+  Rendered friendships/new.html.erb within layouts/application (15.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.8ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:28:20 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[36mExpert Load (0.8ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "experts".* FROM "experts"
+  Rendered friendships/_form.html.erb (14.2ms)
+  Rendered friendships/new.html.erb within layouts/application (16.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:28:57 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.9ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (164.3ms)
+  Rendered friendships/new.html.erb within layouts/application (171.0ms)
+  Rendered layouts/_navigation_links.html.erb (1.6ms)
+  Rendered layouts/_navigation.html.erb (4.0ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+Completed 200 OK in 482ms (Views: 439.8ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:29:40 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (1.0ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (148.4ms)
+  Rendered friendships/new.html.erb within layouts/application (154.3ms)
+  Rendered layouts/_navigation_links.html.erb (1.2ms)
+  Rendered layouts/_navigation.html.erb (3.1ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 437ms (Views: 397.9ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:30:36 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FriendshipsController#new as HTML
+  Rendered friendships/_form.html.erb (120.4ms)
+  Rendered friendships/new.html.erb within layouts/application (126.2ms)
+  Rendered layouts/_navigation_links.html.erb (1.2ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 404ms (Views: 368.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:31:08 +0000
+Processing by FriendshipsController#new as HTML
+  Rendered friendships/_form.html.erb (10.1ms)
+  Rendered friendships/new.html.erb within layouts/application (11.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 32ms (Views: 30.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:32:07 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FriendshipsController#new as HTML
+  Rendered friendships/_form.html.erb (118.7ms)
+  Rendered friendships/new.html.erb within layouts/application (124.0ms)
+  Rendered layouts/_navigation_links.html.erb (1.5ms)
+  Rendered layouts/_navigation.html.erb (4.1ms)
+  Rendered layouts/_messages.html.erb (1.4ms)
+Completed 200 OK in 429ms (Views: 391.6ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:32:22 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FriendshipsController#new as HTML
+  Rendered friendships/_form.html.erb (117.8ms)
+  Rendered friendships/new.html.erb within layouts/application (123.4ms)
+  Rendered layouts/_navigation_links.html.erb (1.2ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+Completed 200 OK in 403ms (Views: 366.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:32:38 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FriendshipsController#new as HTML
+  Rendered friendships/_form.html.erb (132.2ms)
+  Rendered friendships/new.html.erb within layouts/application (138.4ms)
+  Rendered layouts/_navigation_links.html.erb (1.2ms)
+  Rendered layouts/_navigation.html.erb (3.1ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 440ms (Views: 401.3ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:35:24 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.9ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (149.7ms)
+  Rendered friendships/new.html.erb within layouts/application (155.5ms)
+  Rendered layouts/_navigation_links.html.erb (1.6ms)
+  Rendered layouts/_navigation.html.erb (3.9ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+Completed 200 OK in 439ms (Views: 400.4ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:37:53 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.9ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (148.7ms)
+  Rendered friendships/new.html.erb within layouts/application (153.6ms)
+  Rendered layouts/_navigation_links.html.erb (1.2ms)
+  Rendered layouts/_navigation.html.erb (3.1ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 435ms (Views: 394.1ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:40:11 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.8ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (13.5ms)
+  Rendered friendships/new.html.erb within layouts/application (14.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 37ms (Views: 33.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:40:13 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.8ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (13.1ms)
+  Rendered friendships/new.html.erb within layouts/application (14.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 35ms (Views: 33.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:40:46 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.9ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (149.3ms)
+  Rendered friendships/new.html.erb within layouts/application (154.2ms)
+  Rendered layouts/_navigation_links.html.erb (1.2ms)
+  Rendered layouts/_navigation.html.erb (3.1ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 436ms (Views: 396.0ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:45:32 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.9ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (129.8ms)
+  Rendered friendships/new.html.erb within layouts/application (134.7ms)
+  Rendered layouts/_navigation_links.html.erb (1.1ms)
+  Rendered layouts/_navigation.html.erb (3.0ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 367ms (Views: 326.5ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:46:06 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.7ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (11.3ms)
+  Rendered friendships/new.html.erb within layouts/application (12.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 31ms (Views: 28.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:46:27 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.8ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (12.7ms)
+  Rendered friendships/new.html.erb within layouts/application (13.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 34ms (Views: 30.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:46:35 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (1.0ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (135.2ms)
+  Rendered friendships/new.html.erb within layouts/application (140.9ms)
+  Rendered layouts/_navigation_links.html.erb (1.1ms)
+  Rendered layouts/_navigation.html.erb (3.0ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+Completed 200 OK in 376ms (Views: 335.4ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-14 23:46:38 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.8ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (65.9ms)
+  Rendered friendships/new.html.erb within layouts/application (67.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 87ms (Views: 84.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-15 00:12:33 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.7ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (12.9ms)
+  Rendered friendships/new.html.erb within layouts/application (14.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-15 00:12:50 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.7ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (10.7ms)
+  Rendered friendships/new.html.erb within layouts/application (12.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 33ms (Views: 30.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-15 00:13:05 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.7ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (14.5ms)
+  Rendered friendships/new.html.erb within layouts/application (16.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 37ms (Views: 34.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-15 00:13:26 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.7ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (11.7ms)
+  Rendered friendships/new.html.erb within layouts/application (13.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 31ms (Views: 29.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-15 00:14:00 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.7ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (11.8ms)
+  Rendered friendships/new.html.erb within layouts/application (13.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 88ms (Views: 86.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-15 00:15:04 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.8ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (12.7ms)
+  Rendered friendships/new.html.erb within layouts/application (14.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 33ms (Views: 30.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-15 00:15:51 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.7ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (12.0ms)
+  Rendered friendships/new.html.erb within layouts/application (14.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-15 00:15:53 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.7ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (10.8ms)
+  Rendered friendships/new.html.erb within layouts/application (12.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 29ms (Views: 26.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-15 00:16:00 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.7ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (13.2ms)
+  Rendered friendships/new.html.erb within layouts/application (15.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 36ms (Views: 34.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-15 00:16:03 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (3.7ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (15.5ms)
+  Rendered friendships/new.html.erb within layouts/application (17.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (5.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 50ms (Views: 45.2ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-15 00:16:10 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.8ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (12.8ms)
+  Rendered friendships/new.html.erb within layouts/application (14.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 32ms (Views: 30.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-15 00:16:12 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.7ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (9.6ms)
+  Rendered friendships/new.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 27ms (Views: 25.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/friendships/new" for 127.0.0.1 at 2014-01-15 00:16:20 +0000
+Processing by FriendshipsController#new as HTML
+  [1m[35mExpert Load (0.7ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  Rendered friendships/_form.html.erb (11.8ms)
+  Rendered friendships/new.html.erb within layouts/application (13.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 31ms (Views: 28.9ms | ActiveRecord: 0.8ms)
