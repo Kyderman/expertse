@@ -32948,3 +32948,207 @@ Processing by ExpertsController#create as HTML
   Rendered layouts/_navigation.html.erb (3.0ms)
   Rendered layouts/_messages.html.erb (0.8ms)
 Completed 200 OK in 397ms (Views: 319.5ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/experts" for 127.0.0.1 at 2014-01-15 23:09:55 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ExpertsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VzGVrz0tJvcCB1Sun6bKHTKQ371vBkGTyAM86YDUaqA=", "expert"=>{"firstname"=>"err", "surname"=>"frfsa", "website"=>""}, "commit"=>"Create Expert"}
+  Rendered experts/_form.html.erb (76.0ms)
+  Rendered experts/new.html.erb within layouts/application (81.3ms)
+  Rendered layouts/_navigation_links.html.erb (1.1ms)
+  Rendered layouts/_navigation.html.erb (3.0ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 400ms (Views: 330.5ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/experts" for 127.0.0.1 at 2014-01-15 23:10:02 +0000
+Processing by ExpertsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VzGVrz0tJvcCB1Sun6bKHTKQ371vBkGTyAM86YDUaqA=", "expert"=>{"firstname"=>"err", "surname"=>"", "website"=>""}, "commit"=>"Create Expert"}
+  Rendered experts/_form.html.erb (11.9ms)
+  Rendered experts/new.html.erb within layouts/application (13.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 35ms (Views: 32.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/experts" for 127.0.0.1 at 2014-01-15 23:10:04 +0000
+Processing by ExpertsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VzGVrz0tJvcCB1Sun6bKHTKQ371vBkGTyAM86YDUaqA=", "expert"=>{"firstname"=>"err", "surname"=>"", "website"=>""}, "commit"=>"Create Expert"}
+  Rendered experts/_form.html.erb (8.8ms)
+  Rendered experts/new.html.erb within layouts/application (9.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 27ms (Views: 24.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/experts" for 127.0.0.1 at 2014-01-15 23:10:09 +0000
+Processing by ExpertsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VzGVrz0tJvcCB1Sun6bKHTKQ371vBkGTyAM86YDUaqA=", "expert"=>{"firstname"=>"", "surname"=>"", "website"=>""}, "commit"=>"Create Expert"}
+  Rendered experts/_form.html.erb (9.8ms)
+  Rendered experts/new.html.erb within layouts/application (10.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 32ms (Views: 29.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/experts" for 127.0.0.1 at 2014-01-15 23:10:22 +0000
+Processing by ExpertsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VzGVrz0tJvcCB1Sun6bKHTKQ371vBkGTyAM86YDUaqA=", "expert"=>{"firstname"=>"", "surname"=>"", "website"=>""}, "commit"=>"Create Expert"}
+  Rendered experts/_form.html.erb (10.7ms)
+  Rendered experts/new.html.erb within layouts/application (11.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 32ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/experts" for 127.0.0.1 at 2014-01-15 23:12:21 +0000
+Processing by ExpertsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VzGVrz0tJvcCB1Sun6bKHTKQ371vBkGTyAM86YDUaqA=", "expert"=>{"firstname"=>"", "surname"=>"", "website"=>"kyleselman.co.uk"}, "commit"=>"Create Expert"}
+  [1m[35m (4.9ms)[0m  BEGIN
+  [1m[36mSQL (6.9ms)[0m  [1mINSERT INTO "experts" ("created_at", "firstname", "surname", "updated_at", "website") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["firstname", ""], ["surname", ""], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["website", "http://kyleselman.co.uk"]]
+  [1m[35m (21.7ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "Kyle Selman"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[36m (3.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "About Me"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[35m (7.4ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "Skills"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[36m (7.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "Experience"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[35m (5.6ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "Education"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[36m (8.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "Activities"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[35m (7.6ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "References"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[36m (6.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "Contact Me"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[35m (3.7ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "Languages"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[36m (4.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "Frameworks"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[35m (8.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "Applications"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[36m (8.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "Techniques"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[35m (7.1ms)[0m  COMMIT
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "Work Experience"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[36m (7.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "Projects"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[35m (4.7ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "University of Bath"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[36m (7.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "Weston College"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[35m (8.1ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "Wyvern Community School"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[36m (7.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "Somerset County Pool Team"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[35m (6.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "University of Bath"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[36m (8.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "Professor Guy McCusker"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[35m (7.8ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "Peter Fealey"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[36m (6.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "tags" ("created_at", "expert_id", "tag", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00], ["expert_id", 23], ["tag", "Mr Darren Selman"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[35m (6.8ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  UPDATE "experts" SET "website" = $1, "updated_at" = $2 WHERE "experts"."id" = 23  [["website", "http://goo.gl/rVyvSL"], ["updated_at", Wed, 15 Jan 2014 23:12:22 UTC +00:00]]
+  [1m[36m (4.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/experts/23
+Completed 302 Found in 1299ms (ActiveRecord: 220.3ms)
+
+
+Started GET "/experts/23" for 127.0.0.1 at 2014-01-15 23:12:22 +0000
+Processing by ExpertsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[35mExpert Load (2.1ms)[0m  SELECT "experts".* FROM "experts" WHERE "experts"."id" = $1 LIMIT 1  [["id", "23"]]
+  Rendered experts/show.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 32ms (Views: 26.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/experts" for 127.0.0.1 at 2014-01-15 23:12:25 +0000
+Processing by ExpertsController#index as HTML
+  [1m[36mExpert Load (0.8ms)[0m  [1mSELECT "experts".* FROM "experts"[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 8]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 9]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 11]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 19]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 21]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 22]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1  [["expert_id", 23]]
+  Rendered experts/index.html.erb within layouts/application (103.1ms)
+  Rendered layouts/_navigation_links.html.erb (1.4ms)
+  Rendered layouts/_navigation.html.erb (3.9ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+Completed 200 OK in 125ms (Views: 113.7ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/experts/new" for 127.0.0.1 at 2014-01-15 23:14:14 +0000
+Processing by ExpertsController#new as HTML
+  Rendered experts/_form.html.erb (32.9ms)
+  Rendered experts/new.html.erb within layouts/application (35.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 72ms (Views: 53.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/experts/new" for 127.0.0.1 at 2014-01-15 23:14:45 +0000
+Processing by ExpertsController#new as HTML
+  Rendered experts/_form.html.erb (30.4ms)
+  Rendered experts/new.html.erb within layouts/application (32.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 118ms (Views: 100.5ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/experts/new" for 127.0.0.1 at 2014-01-15 23:22:58 +0000
+Processing by ExpertsController#new as HTML
+  Rendered experts/_form.html.erb (37.4ms)
+  Rendered experts/new.html.erb within layouts/application (39.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 130ms (Views: 110.8ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/experts" for 127.0.0.1 at 2014-01-15 23:34:16 +0000
+Processing by ExpertsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VzGVrz0tJvcCB1Sun6bKHTKQ371vBkGTyAM86YDUaqA=", "expert"=>{"firstname"=>"sfaas", "surname"=>"qwedawE", "website"=>"esfserfes.co.uk"}, "commit"=>"Create Expert"}
+  Rendered experts/_form.html.erb (11.6ms)
+  Rendered experts/new.html.erb within layouts/application (12.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 83ms (Views: 30.3ms | ActiveRecord: 0.0ms)

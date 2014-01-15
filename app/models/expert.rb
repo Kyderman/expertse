@@ -1,5 +1,8 @@
 class Expert < ActiveRecord::Base
   
+  validates :firstname, :presence => true
+  validates :surname, :presence => true
+  validates :website, :presence => true
   
   has_many :friendships, :dependent => :destroy
   has_many :friends, :through => :friendships
@@ -18,7 +21,7 @@ class Expert < ActiveRecord::Base
     begin
       doc = Nokogiri::HTML.parse(open(self.website))
     rescue Exception => e
-      self.errors.add(:website, 'Website invalid - must follow the form: example.com')
+      self.errors.add(:website, 'Website invalid - must follow the form: example.com & be a real website')
       self.website = nil
       return false
     end
