@@ -40,17 +40,10 @@ class ExpertsController < ApplicationController
     @expert = Expert.new(expert_params)
 
     respond_to do |format|
-      if @expert.save
+      if @expert.web_check && @expert.save
         format.html { redirect_to @expert, notice: 'Expert was successfully created.' }
         format.json { render action: 'show', status: :created, location: @expert }
         
-        doc = Nokogiri::HTML.parse(open(@expert.website))
-        doc.css('h1, h2, h3').each do |tag|
-          t = Tag.create(:expert_id => @expert.id, :tag => tag.inner_html)
-        end
-        
-        googl = Shortly::Clients::Googl
-        @expert.update(:website => googl.shorten(@expert.website).shortUrl)
         
         
       else

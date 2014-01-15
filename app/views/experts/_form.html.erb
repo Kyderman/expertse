@@ -1,13 +1,23 @@
-<%= simple_form_for(@expert) do |f| %>
+
+<%= simple_form_for @expert do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :firstname %>
     <%= f.input :surname %>
-    <%= f.input :website %>
+    <%= f.label :website %>
+    
+    <div class="input-group">
+  		<%= f.input :website, :wrapper => :prepend, :label => false do %>
+    	<%= content_tag :span, "http://", :class => "input-group-addon" %>
+    	<%= f.input_field :website, :placeholder => "example.co.uk" %>
+	</div>
+  <% end %>
+    
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+    <%= f.button :submit, :class => "btn btn-success pull-right" %>
+  
 <% end %>
+
