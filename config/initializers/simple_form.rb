@@ -11,6 +11,7 @@ RangeInput
 StringInput
 TextInput
 ]
+
 inputs.each do |input_type|
 superclass = "SimpleForm::Inputs::#{input_type}".constantize
 new_class = Class.new(superclass) do
@@ -63,5 +64,9 @@ end
 # Check the Bootstrap docs (http://getbootstrap.com/)
 # to learn about the different styles for forms and inputs,
 # buttons and other elements.
+#default_message: '<a class="close" data-dismiss="alert">&times;</a>Some errors were found, please take a look:'
+config.error_notification_tag = :div
+config.error_notification_class = "alert alert-danger"
+
 config.default_wrapper = :bootstrap3
 end

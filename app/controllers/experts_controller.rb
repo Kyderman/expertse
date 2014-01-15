@@ -40,7 +40,7 @@ class ExpertsController < ApplicationController
     @expert = Expert.new(expert_params)
 
     respond_to do |format|
-      if @expert.web_check && @expert.save
+      if @expert.web_check
         format.html { redirect_to @expert, notice: 'Expert was successfully created.' }
         format.json { render action: 'show', status: :created, location: @expert }
         

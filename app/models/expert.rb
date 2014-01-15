@@ -13,12 +13,15 @@ class Expert < ActiveRecord::Base
   end
   
   def web_check
+    prep = "http://"
+    self.website = prep + self.website
     begin
-  doc = Nokogiri::HTML.parse(open(self.website))
-rescue Exception => e
-  puts "Couldn't read \"#{ self.website }\": #{ e }"
-  return false
-end
+      doc = Nokogiri::HTML.parse(open(self.website))
+    rescue Exception => e
+      self.errors.add(:website, 'Website invalid - must follow the form: example.com')
+      self.website = nil
+      return false
+    end
     self.save
     doc.css('h1, h2, h3').each do |tag|
           t  = Tag.create(:expert_id => self.id, :tag => tag.inner_html)
