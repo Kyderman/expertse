@@ -32,6 +32,7 @@ class ExpertsController < ApplicationController
 
   # GET /experts/1/edit
   def edit
+    
   end
 
   # POST /experts
@@ -40,7 +41,7 @@ class ExpertsController < ApplicationController
     @expert = Expert.new(expert_params)
 
     respond_to do |format|
-      if @expert.web_check
+      if @expert.web_check(@expert.long_website)
         format.html { redirect_to @expert, notice: 'Expert was successfully created.' }
         format.json { render action: 'show', status: :created, location: @expert }
         
@@ -57,7 +58,7 @@ class ExpertsController < ApplicationController
   # PATCH/PUT /experts/1.json
   def update
     respond_to do |format|
-      if @expert.update(expert_params)
+      if @expert.web_check(expert_params[:long_website]) && @expert.update(expert_params)
         format.html { redirect_to @expert, notice: 'Expert was successfully updated.' }
         format.json { head :no_content }
       else
@@ -89,6 +90,6 @@ class ExpertsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expert_params
-      params.require(:expert).permit(:firstname, :surname, :website)
+      params.require(:expert).permit(:firstname, :surname, :long_website)
     end
 end
