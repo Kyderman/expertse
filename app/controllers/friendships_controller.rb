@@ -40,12 +40,12 @@ class FriendshipsController < ApplicationController
 
     respond_to do |format|
       if @newf.save && @newinvf.save
-        format.html { redirect_to root_path, notice: 'Friendship was successfully created.' }
-        format.json { render action: 'index', status: :show, location: root_path }
+        format.html { redirect_to :back, notice: 'Friendship was successfully created.' }
+        #format.json { render action: 'index', status: :show, location: :back }
         
         
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to :back, notice: 'Friendship was not created.' }
         format.json { render json: @friendship.errors, status: :unprocessable_entity }
       end
     end
@@ -77,11 +77,9 @@ class FriendshipsController < ApplicationController
     @newf.destroy
     
     respond_to do |format|
-      if($current_expert)
-        format.html { redirect_to root_path, notice: 'Friendship successfully removed.' }
-      else
-        format.html { redirect_to friendships_path}
-      end
+     
+        format.html { redirect_to :back, notice: 'Friendship successfully removed.' }
+      
      
       format.json { head :no_content }
     end

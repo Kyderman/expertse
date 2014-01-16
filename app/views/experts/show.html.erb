@@ -1,23 +1,43 @@
-<p id="notice"><%= notice %></p>
-
+<div class="jumbotron text-center">
+<h1>
+  <%= @expert.fullname %>
+</h1>
 <p>
-  <strong>Firstname:</strong>
-  <%= @expert.firstname %>
-</p>
-
-<p>
-  <strong>Surname:</strong>
-  <%= @expert.surname %>
-</p>
-
-<p>
-  <strong>Website:</strong>
-  <%= @expert.website %>
+  <%= link_to @expert.website %>
 </p>
 <p>
-  <strong>Long Website:</strong>
+  (
   <%= @expert.long_website %>
+  )
 </p>
+<%= link_to 'Edit', edit_expert_path(@expert), :class => "btn btn-warning" %>
 
-<%= link_to 'Edit', edit_expert_path(@expert) %> |
-<%= link_to 'Back', experts_path %>
+<%if ($current_expert == @expert)%>
+	<%= link_to 'Remove Active',remove_current_expert_expert_path(@expert), class: 'btn btn-danger' %>
+<%else%>
+	<%= link_to 'Set Active',set_current_expert_expert_path(@expert), class: 'btn btn-success' %>
+<%end%>
+		        	
+<%if ($current_expert)%>
+	
+	<%if (@expert == $current_expert)%>
+			
+			
+	<%else%>
+		<%if (@curship = $current_expert.friendships.where(:friend_id => @expert.id).first)%>
+				
+			<%= link_to 'Remove Friend', @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger' %>
+		<%else%>
+			<%= link_to 'Add Friend', friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => @expert.id}), :method => :post, class: 'btn btn-success' %>
+		<%end%>
+			
+			
+	<%end%>
+		
+	
+<%end%>
+<br /><%= link_to 'Delete', @expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger' %>
+</div>
+
+
+

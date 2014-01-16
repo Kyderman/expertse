@@ -11,6 +11,10 @@ class Expert < ActiveRecord::Base
   
   has_many :tags, :dependent => :destroy
   
+  def set
+    $current_expert = self
+  end
+  
   def fullname
     "#{firstname} #{surname}"
   end
@@ -28,7 +32,7 @@ class Expert < ActiveRecord::Base
   
   def get_tags(doc)
     doc.css('h1, h2, h3').each do |tag|
-          t  = Tag.create(:expert_id => self.id, :tag => tag.inner_html)
+          Tag.create(:expert_id => self.id, :tag => tag.inner_html)
           
           end
   end
@@ -54,7 +58,7 @@ class Expert < ActiveRecord::Base
       self.long_website = site
       self.save
       if (Tag.where(:expert_id => self.id).first)
-      remove_old_tags
+        remove_old_tags
       end
       get_tags(doc)
       

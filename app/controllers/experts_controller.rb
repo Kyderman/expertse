@@ -12,12 +12,12 @@ class ExpertsController < ApplicationController
   
   def set_current_expert
     $current_expert = Expert.find(params[:id])
-    redirect_to root_path
+    redirect_to :back
   end
   
   def remove_current_expert
     $current_expert = nil
-    redirect_to root_path
+    redirect_to :back
   end
 
   # GET /experts/1

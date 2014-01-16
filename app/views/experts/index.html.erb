@@ -38,7 +38,7 @@
 		        	<%if ($current_expert == expert)%>
 		        		<%= link_to 'Remove Active',remove_current_expert_expert_path(expert), class: 'btn-xs btn-danger' %>
 		        	<%else%>
-		        		<%= link_to 'Set Active',set_current_expert_expert_path(expert), class: 'btn-xs btn-success' %>
+		        		<%= link_to 'Set Active',set_current_expert_expert_path(expert),  class: 'btn-xs btn-success' %>
 		        	<%end%>
 		        	</td>
 		        	<%if ($current_expert)%>
