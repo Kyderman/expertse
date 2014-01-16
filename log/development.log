@@ -40064,3 +40064,26 @@ Processing by ExpertsController#index as HTML
   Rendered layouts/_navigation.html.erb (1.9ms)
   Rendered layouts/_messages.html.erb (0.2ms)
 Completed 200 OK in 32ms (Views: 29.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/experts" for 127.0.0.1 at 2014-01-16 22:16:23 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ExpertsController#index as HTML
+  [1m[35mExpert Load (0.9ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36m (4.4ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 3]]
+  Rendered experts/index.html.erb within layouts/application (108.5ms)
+  Rendered layouts/_navigation_links.html.erb (1.3ms)
+  Rendered layouts/_navigation.html.erb (3.3ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 368ms (Views: 314.4ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/experts" for 127.0.0.1 at 2014-01-16 22:17:11 +0000
+Processing by ExpertsController#index as HTML
+  [1m[35mExpert Load (0.8ms)[0m  SELECT "experts".* FROM "experts"
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "friendships" WHERE "friendships"."expert_id" = $1[0m  [["expert_id", 3]]
+  Rendered experts/index.html.erb within layouts/application (6.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 28ms (Views: 25.3ms | ActiveRecord: 1.4ms)
