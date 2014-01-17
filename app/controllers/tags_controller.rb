@@ -5,7 +5,12 @@ class TagsController < ApplicationController
   # GET /tags.json
   def index
     #Simpleforms doesnt like playing with searching...
-    @tags = Tag.search(params[:search].first[1])
+    
+    if(params[:search])
+      @tags = Tag.search(params[:search].first[1])
+    else
+      @tags = Tag.all
+    end
   end
 
   # GET /tags/1

@@ -31,7 +31,9 @@ class Expert < ActiveRecord::Base
   
   def get_tags(doc)
     doc.css('h1, h2, h3').each do |tag|
-      Tag.create(:expert_id => self.id, :tag => tag.inner_html)
+      if(tag.inner_text.length < 256 && !tag.content.blank? && !tag.content.strip.empty?)
+        Tag.create(:expert_id => self.id, :tag => tag.inner_text)
+      end
     end
   end
   
