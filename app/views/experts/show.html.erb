@@ -65,7 +65,33 @@
 	</div>
 	</div>
 	<div class="col-md-4">
-	
+		<%if ($current_expert != @expert)%>
+			<%@dis = true%>
+			<%@place_text = 'Must make user active before search'%>
+			<%else%>
+			<%@dis = false%>
+			<%@place_text = 'Search tags...'%>
+		<%end%>
+			<%= simple_form_for :search, :url => tags_path, :method => :get, :class => "form-control" do |f| %>
+			  	<%= f.error_notification %>
+			
+			  	<div class="form-inputs">
+			    	<%= f.label 'Search', :required => false%>
+			    	<%= f.input :search, :label => false do %>
+			    	
+	    			<%= f.input_field :search, :placeholder => @place_text, :disabled => @dis %>
+	    			
+	    			<%end%>
+			  	</div>
+			
+			  	<div class="form-actions">
+			    	<%= f.button :submit, :value => 'Search', :class => "btn btn-success btn-block", :disabled => @dis %>
+			  	</div>
+			<% end %>
+			
+		
+		
+		
 	</div>
 
 	<div class="col-md-4">

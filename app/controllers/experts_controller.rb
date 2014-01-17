@@ -12,6 +12,7 @@ class ExpertsController < ApplicationController
   
   def set_current_expert
     $current_expert = Expert.find(params[:id])
+    
     redirect_to :back
   end
   

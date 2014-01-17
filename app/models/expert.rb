@@ -10,7 +10,9 @@ class Expert < ActiveRecord::Base
   has_many :inverse_friends, :through => :inverse_friendships, :source => :expert
   
   has_many :tags, :dependent => :destroy
-  d
+  
+  
+  
   def fullname
     "#{firstname} #{surname}"
   end
