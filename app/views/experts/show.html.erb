@@ -1,7 +1,10 @@
-<div class="jumbotron text-center">
+<div class="row">
+<div class="jumbotron text-center col-md-offset-3 col-md-6">
 <h1>
-  <%= @expert.fullname %>
+  <%= @expert.fullname %><span class="badge"><%= @expert.friendships.length%></span>
 </h1>
+
+
 <p>
   <%= link_to @expert.website %>
 </p>
@@ -10,14 +13,12 @@
   <%= @expert.long_website %>
   )
 </p>
-<%= link_to 'Edit', edit_expert_path(@expert), :class => "btn btn-warning" %>
-
 <%if ($current_expert == @expert)%>
-	<%= link_to 'Remove Active',remove_current_expert_expert_path(@expert), class: 'btn btn-danger' %>
+	<%= link_to 'Remove Active',remove_current_expert_expert_path(@expert), class: 'btn btn-danger btn-lg btn-block' %>
 <%else%>
-	<%= link_to 'Set Active',set_current_expert_expert_path(@expert), class: 'btn btn-success' %>
+	<%= link_to 'Set Active',set_current_expert_expert_path(@expert), class: 'btn btn-success btn-lg btn-block' %>
 <%end%>
-		        	
+<%= link_to 'Edit', edit_expert_path(@expert), :class => "btn btn-warning btn-lg btn-block" %>	        	
 <%if ($current_expert)%>
 	
 	<%if (@expert == $current_expert)%>
@@ -26,9 +27,9 @@
 	<%else%>
 		<%if (@curship = $current_expert.friendships.where(:friend_id => @expert.id).first)%>
 				
-			<%= link_to 'Remove Friend', @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger' %>
+			<%= link_to 'Remove Friend', @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger btn-lg btn-block' %>
 		<%else%>
-			<%= link_to 'Add Friend', friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => @expert.id}), :method => :post, class: 'btn btn-success' %>
+			<%= link_to 'Add Friend', friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => @expert.id}), :method => :post, class: 'btn btn-success btn-lg btn-block' %>
 		<%end%>
 			
 			
@@ -36,7 +37,57 @@
 		
 	
 <%end%>
-<br /><%= link_to 'Delete', @expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger' %>
+<%= link_to 'Delete', @expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger btn-lg btn-block' %>
+
+</div>
+</div>
+
+
+<div class="col-md-12">
+	<div class="col-md-4">
+	<div class="table-responsive">
+		<table class="table table-bordered">
+		  <thead>
+		    <tr>
+		      <th>Friends</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <% @expert.friendships.each do |friendship| %>
+		    <% @friend = Expert.find(friendship.friend_id)%>
+		      <tr>
+		        <td><%= link_to @friend.fullname , @friend%> </td>
+		        <td><%= link_to 'Remove', friendship, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn-xs btn-danger' %></td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	</div>
+	</div>
+	<div class="col-md-4">
+	
+	</div>
+
+	<div class="col-md-4">
+	<div class="table-responsive">
+		<table class="table table-bordered">
+		  <thead>
+		    <tr>
+		      <th>Tags</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <% @expert.tags.each do |tag| %>
+		    <% @tag_text = tag.tag%>
+		      <tr>
+		        <td><%= @tag_text%> </td>
+		        
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	</div>
+	</div>
 </div>
 
 

@@ -10,21 +10,18 @@ class Expert < ActiveRecord::Base
   has_many :inverse_friends, :through => :inverse_friendships, :source => :expert
   
   has_many :tags, :dependent => :destroy
-  
-  def set
-    $current_expert = self
-  end
-  
+  d
   def fullname
     "#{firstname} #{surname}"
   end
+  
+  
   def check_site(site)
     begin
       doc = Nokogiri::HTML.parse(open(site))
     rescue Exception => e
       self.errors.add(:long_website, 'Website invalid - must follow the form: example.com & be a real website')
       self.website = nil
-      #self.long_website = nil
       return false
     end
     return doc
@@ -32,9 +29,8 @@ class Expert < ActiveRecord::Base
   
   def get_tags(doc)
     doc.css('h1, h2, h3').each do |tag|
-          Tag.create(:expert_id => self.id, :tag => tag.inner_html)
-          
-          end
+      Tag.create(:expert_id => self.id, :tag => tag.inner_html)
+    end
   end
   
   def remove_old_tags
@@ -45,7 +41,7 @@ class Expert < ActiveRecord::Base
   
   def shorten_site(site)
     googl = Shortly::Clients::Googl
-        return googl.shorten(site).shortUrl
+    return googl.shorten(site).shortUrl
   end
  
   def web_check(site)

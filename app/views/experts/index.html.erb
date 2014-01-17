@@ -4,6 +4,9 @@
 	
 	<%= link_to 'Create new', new_expert_path, class: "btn btn-primary btn-lg" %>
 	
+	
+<% end %>
+	
 </div>
 </div>
 
@@ -32,7 +35,7 @@
 		      <tr>
 		        <td><%= expert.firstname %></td>
 		        <td><%= expert.surname %></td>
-		        <td><%= expert.website %></td>
+		        <td><%= link_to expert.website, expert.website %></td>
 		        <td><%= expert.friendships.size %></td>
 		        <td>
 		        	<%if ($current_expert == expert)%>
