@@ -1,5 +1,5 @@
 class FriendshipsController < ApplicationController
-  before_action :set_friendship, only: [:show, :edit, :update, :destroy]
+  before_action :set_friendship, only: [:show, :destroy]
 
   # GET /friendships
   # GET /friendships.json
@@ -17,21 +17,14 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.new
   end
 
-  # GET /friendships/1/edit
-  def edit
-  end
-
   # POST /friendships
   # POST /friendships.json
   def create
     @friendship = Friendship.new(friendship_params)
     
-    
-      
-    
 
     respond_to do |format|
-      if 
+      if Friendship.request(@friendship.expert, @friendship.friend)
         format.html { redirect_to :back, notice: 'Friendship was successfully created.' }
         format.json { render action: 'index', status: :show, location: :back }
         
@@ -43,26 +36,13 @@ class FriendshipsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /friendships/1
-  # PATCH/PUT /friendships/1.json
-  def update
-    respond_to do |format|
-      if @friendship.update(friendship_params)
-        format.html { redirect_to @friendship, notice: 'Friendship was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @friendship.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # DELETE /friendships/1@f@f
   # DELETE /friendships/1.json
   def destroy
     
-      @cur_ex = Expert.find(@friendship.expert_id)
-       @newf = @cur_ex.inverse_friendships.where(expert_id: @friendship.friend_id, friend_id: @friendship.expert_id).first
+    @cur_ex = Expert.find(@friendship.expert_id)
+    @newf = @cur_ex.inverse_friendships.where(expert_id: @friendship.friend_id, friend_id: @friendship.expert_id).first
     
     
     @friendship.destroy
