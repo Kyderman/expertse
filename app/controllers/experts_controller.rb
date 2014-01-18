@@ -8,6 +8,11 @@ class ExpertsController < ApplicationController
   def index
     @experts = Expert.all
     
+    respond_to do |format|
+      format.html{}
+      format.js{}
+    end
+    
   end
   
   def set_current_expert

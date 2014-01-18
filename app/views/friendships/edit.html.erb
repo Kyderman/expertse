@@ -1,6 +1,14 @@
-<h1>Editing friendship</h1>
 
-<%= render 'form' %>
+<div class="jumbotron text-center">
+<h1>Edit Friendship</h1>
+<%= link_to 'Go to Friendship', @friendship, :class => "btn btn-info" %> 
+</div>
+	
+<div class="col-md-offset-2 col-md-8">
 
-<%= link_to 'Show', @friendship %> |
-<%= link_to 'Back', friendships_path %>
+	<%= render 'form' %>
+
+
+		<%= link_to 'Back', friendships_path, :class => "btn btn-danger" %>
+	</div>
+</div>

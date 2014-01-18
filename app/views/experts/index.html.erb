@@ -10,7 +10,7 @@
 		<div class="col-md-6">
 		
 
-			<%= simple_form_for :search, :url => tags_path, :method => :get do |f| %>
+			<%= simple_form_for :search, :url => tags_path, :remote => true, :method => :get do |f| %>
 		  	<%= f.error_notification %>
 		
 		  	<div class="form-inputs">
@@ -58,9 +58,9 @@
 		        <td><%= expert.friendships.size %></td>
 		        <td>
 		        	<%if ($current_expert == expert)%>
-		        		<%= link_to 'Remove Active',remove_current_expert_expert_path(expert), class: 'btn-xs btn-danger' %>
+		        		<%= link_to 'Remove Active',remove_current_expert_expert_path(expert), class: 'btn btn-xs btn-danger' %>
 		        	<%else%>
-		        		<%= link_to 'Set Active',set_current_expert_expert_path(expert),  class: 'btn-xs btn-success' %>
+		        		<%= link_to 'Set Active',set_current_expert_expert_path(expert),  class: 'btn btn-xs btn-success' %>
 		        	<%end%>
 		        	</td>
 		        	<%if ($current_expert)%>
@@ -71,9 +71,9 @@
 		        			<%else%>
 		        			<%if (@curship = $current_expert.friendships.where(:friend_id => expert.id).first)%>
 		        				
-		        				<%= link_to 'Remove Friend', @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: 'btn-xs btn-danger' %>
+		        				<%= link_to 'Remove Friend', @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: ' btnbtn-xs btn-danger' %>
 		        			<%else%>
-		        			<%= link_to 'Add Friend', friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => expert.id}), :method => :post, class: 'btn-xs btn-success' %>
+		        			<%= link_to 'Add Friend', friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => expert.id}), :method => :post, class: 'btn btn-xs btn-success' %>
 		        			<%end%>
 		        			
 		        			
@@ -91,6 +91,9 @@
 	</div>
 	</div>
 </div>
+
+
+
 
 
 

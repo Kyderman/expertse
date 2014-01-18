@@ -1,14 +1,41 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Expert:</strong>
-  <%= @friendship.expert_id %>
-</p>
 
-<p>
-  <strong>Friend:</strong>
-  <%= @friendship.friend_id %>
-</p>
+<% @expert = Expert.find(@friendship.expert_id)%>
 
-<%= link_to 'Edit', edit_friendship_path(@friendship) %> |
-<%= link_to 'Back', friendships_path %>
+
+<% @friend = Expert.find(@friendship.friend_id)%>
+
+
+<div class="jumbotron text-center">
+	<div class="row">
+	<div class="col-md-4">
+		<h2>
+		<%=link_to @expert.fullname, @expert%>
+		</h2>
+	</div>
+	<div class="col-md-4">
+		<h2>
+  			Is Friends With...
+		</h2>
+	</div>
+	<div class="col-md-4">
+		<h2>
+		<%=link_to @friend.fullname, @friend%>
+		</h2>
+	</div>
+	</div>
+	<br>
+	<div class="row">
+	<div class="col-md-offset-4 col-md-4">
+		
+		<%= link_to 'Edit', edit_friendship_path(@friendship), :class => "btn btn-default btn-lg btn-block" %>	        	
+	<%= link_to 'Delete', @friendship, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger btn-lg btn-block' %>
+	<%= link_to 'Back', friendships_path, class: 'btn btn-warning btn-lg btn-block' %>
+	</div>
+	</div>
+</div>
+</div>
+
+
+
+

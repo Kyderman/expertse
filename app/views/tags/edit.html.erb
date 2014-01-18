@@ -1,6 +1,15 @@
-<h1>Editing tag</h1>
 
-<%= render 'form' %>
 
-<%= link_to 'Show', @tag %> |
-<%= link_to 'Back', tags_path %>
+<div class="jumbotron text-center">
+<h1>Edit Tag</h1>
+<%= link_to 'Go to Tag', @tag, :class => "btn btn-info" %> 
+</div>
+	
+<div class="col-md-offset-2 col-md-8">
+
+	<%= render 'form' %>
+
+
+		<%= link_to 'Back', tags_path, :class => "btn btn-danger" %>
+	</div>
+</div>
