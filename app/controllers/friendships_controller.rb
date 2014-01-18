@@ -25,27 +25,19 @@ class FriendshipsController < ApplicationController
   # POST /friendships.json
   def create
     @friendship = Friendship.new(friendship_params)
-    #if ($current_expert && friendship_params.value?($current_expert.id))
-      #@newf = $current_expert.friendships.build(:friend_id => @friendship.friend_id)
-      #@newinvf = $current_expert.inverse_friendships.build(:expert_id => @friendship.friend_id)
-    #else
+    
+    
       
-      @cur_ex = Expert.find(@friendship.expert_id)
-      @newf = @cur_ex.friendships.build(:friend_id => @friendship.friend_id)
-      @newinvf = @cur_ex.inverse_friendships.build(:expert_id => @friendship.friend_id)
-    #end
-    
-    
     
 
     respond_to do |format|
-      if @newf.save && @newinvf.save
+      if 
         format.html { redirect_to :back, notice: 'Friendship was successfully created.' }
-        #format.json { render action: 'index', status: :show, location: :back }
+        format.json { render action: 'index', status: :show, location: :back }
         
         
       else
-        format.html { redirect_to :back, notice: 'Friendship was not created.' }
+        format.html { redirect_to :back, :flash => { :warning => 'Friendship was not created - Expert and friend must be different'} }
         format.json { render json: @friendship.errors, status: :unprocessable_entity }
       end
     end

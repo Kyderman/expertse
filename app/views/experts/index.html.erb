@@ -71,7 +71,7 @@
 		        			<%else%>
 		        			<%if (@curship = $current_expert.friendships.where(:friend_id => expert.id).first)%>
 		        				
-		        				<%= link_to 'Remove Friend', @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: ' btnbtn-xs btn-danger' %>
+		        				<%= link_to 'Remove Friend', @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: ' btn btn-xs btn-danger' %>
 		        			<%else%>
 		        			<%= link_to 'Add Friend', friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => expert.id}), :method => :post, class: 'btn btn-xs btn-success' %>
 		        			<%end%>

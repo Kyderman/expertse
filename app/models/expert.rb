@@ -13,6 +13,8 @@ class Expert < ActiveRecord::Base
   
   
   
+  
+  
   def fullname
     "#{firstname} #{surname}"
   end

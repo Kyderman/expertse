@@ -1,6 +1,10 @@
 class Tag < ActiveRecord::Base
   belongs_to :expert
   
+  validates :expert, :presence => true
+  validates :tag, :presence => true
+  
+  
   def self.search(term)
     puts term
     if (term)
