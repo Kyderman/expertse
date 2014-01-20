@@ -51,51 +51,64 @@ class Expert < ActiveRecord::Base
     
     puts friend.fullname + ' FRIEND'
     puts current.last.fullname + ' CURRENT_EXPERT'
-    
-    if(!current.empty?)
-      current.last.friends.each do |fr|
-        puts fr.fullname + ' in loop'
-        # SKIP FRIENDS ALREADY SEARCHED
-        if(avoid.include?(fr))
-          next
-        else
-          # FOUND
-          if(fr == friend)
-            puts 'found ' + fr.fullname
-            puts 'RESULT'
-            print_array(current.push(fr))
-            return current
+    if(!friend.friends.empty?)
+      if(!current.empty?)
+        current.last.friends.each do |fr|
+          puts fr.fullname + ' in loop'
+          # SKIP FRIENDS ALREADY SEARCHED
+          if(avoid.include?(fr))
+            next
           else
-            # NOT AVOIDED + NOT WHAT WE WANT, THEREFORE SEARCH THEIR FRIENDS
-            puts 'GOING TO NEXT'
-            # WE NOW WANT TO AVOID THIS PERSON
-            avoid.push(fr)
-            # THIS PERSON IS PART OF OUR CURRENT PATH
-            current.push(fr)
-            
-            # check this persons friends to see if we can get our answer
-            if(@cur = get_friend_path(avoid, current, friend))
-              puts 'recurse'
-              # if true, then we have our answer.
-              return @cur
-            else #false
-              # no longer in our path
-              current.delete(fr)
-              next
+            # FOUND
+            if(fr == friend)
+              puts 'found ' + fr.fullname
+              puts 'RESULT'
+              print_array(current.push(fr))
+              return current
+            else
+              # NOT AVOIDED + NOT WHAT WE WANT, THEREFORE SEARCH THEIR FRIENDS
+              puts 'GOING TO NEXT'
+              # WE NOW WANT TO AVOID THIS PERSON
+              avoid.push(fr)
+              # THIS PERSON IS PART OF OUR CURRENT PATH
+              current.push(fr)
+              
+              # check this persons friends to see if we can get our answer
+              if(@cur = get_friend_path(avoid, current, friend))
+                puts 'ANSWER FOUND -  RESURSE TRUE'
+                # if true, then we have our answer.
+                return @cur
+              else #false
+                # no longer in our path
+                puts fr.fullname + ' REMOVED, NOT IN PATH'
+                current.delete(fr)
+                next
+              end
             end
-          end
-        end    
+          end    
+        end
+      else
+        return false
       end
-    else
-      return false
+        
     end
-      return false
+    return false
   end
   
   def self.print_array(array)
-    array.each do |ex|
-      puts ex.fullname + " => "
+    if(array)
+      @output = ""
+      array.each do |ex|
+        @output += ex.fullname
+        if(array.last != ex)
+          @output += ' => '
+        end
+      end
+      return @output
+    else
+    return 'no path found'
     end
+    
   end
   
   

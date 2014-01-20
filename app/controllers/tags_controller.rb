@@ -8,8 +8,10 @@ class TagsController < ApplicationController
     
     if(params[:search])
       @tags = Tag.search(params[:search].first[1])
+      @search = true
     else
       @tags = Tag.all
+      @search = false
     end
   end
 

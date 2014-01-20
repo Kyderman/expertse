@@ -22,6 +22,9 @@
 		    <tr>
 		      <th>Expert</th>
 		      <th>Tag</th>
+		      <%if (@search)%>
+		      <th>Path from <%=$current_expert.fullname%> to Expert</th>
+		      <%end%>
 		      <th></th>
 		      <th></th>
 		      <th></th>
@@ -29,12 +32,21 @@
 		  </thead>
 		
 		  <tbody>
-		    <% @tags.each do |tag| %>
+		    <%@tags.each do |tag| %>
+		    
 		    <%@cur_expert = Expert.find(tag.expert_id)%>
+		    <%if (@search)%>
+		    	<%if ($current_expert.friends.include?(@cur_expert))%>
+		    		<%next%>
+		    	<%end%>
+		    <%end%>
 		    <%@tag_text = tag.tag%>
 		      <tr>
 		        <td><%= link_to @cur_expert.fullname, @cur_expert%></td>
-		        <td><%=@tag_text%></td>
+		        <td><%= @tag_text%></td>
+		        <%if (@search)%>
+		    		<td><%= Expert.print_array(Expert.get_friend_path(arr = [$current_expert], arr2 = [$current_expert], @cur_expert))%></td>
+		    	<%end%>
 		        <td><%= link_to 'Show', tag, class: 'btn-xs btn-success' %></td>
 		        <td><%= link_to 'Edit', edit_tag_path(tag), class: 'btn-xs btn-warning' %></td>
 		        <td><%= link_to 'Remove', tag, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn-xs btn-danger' %></td>
