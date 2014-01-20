@@ -14,7 +14,7 @@
 			<%@dis = true%>
 			<%@place_text = 'Must make an expert active before searching'%>
 			<%else%>
-			<%@dis = false%>
+			<%@dis = false%> 
 			<%@place_text = 'Search tags...'%>
 		<%end%>
 			<%= simple_form_for :search, :url => tags_path, :method => :get, :class => "form-control" do |f| %>
