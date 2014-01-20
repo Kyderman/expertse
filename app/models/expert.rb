@@ -12,59 +12,26 @@ class Expert < ActiveRecord::Base
   has_many :tags, :dependent => :destroy
   
   
-  def self.get_friend_paths(original, current, friend)
-    puts original.fullname + ' original'
-    
-    puts friend.fullname + ' friend'
-    if (!current)
-      current = original
-    end
-    puts current.fullname + ' current'
-    
-    current.friends.each do |fr|
-      puts fr.fullname + ' in loop'
-      if(fr != original)
-        if(fr == friend)
-          puts 'found ' + fr.fullname
-          return current.fullname + ' => ' + fr.fullname
-        else
-          puts 'going to next...'
-          if (@a = get_friend_path(original,fr, friend))
-            puts @a + ' done recurse'
-            return original.fullname + ' => ' + @a
-          end
-        end
-        else
-          next
-      end
-      return 'No path through friends'
-    end
-  end
+  
   
   
   
   def self.get_friend_path(avoid, current, friend)
     puts 'CURRENT ARRAY'
-    self.print_array(current)
+    self.puts_array(current)
     puts 'AVOID ARRAY'
-    self.print_array(avoid)
+    self.puts_array(avoid)
     
     puts friend.fullname + ' FRIEND'
     puts current.last.fullname + ' CURRENT_EXPERT'
     if(!friend.friends.empty?)
       if(!current.empty?)
-        current.last.friends.each do |fr|
-          puts fr.fullname + ' in loop'
-          # SKIP FRIENDS ALREADY SEARCHED
-          if(avoid.include?(fr))
-            next
-          else
-            # FOUND
-            if(fr == friend)
-              puts 'found ' + fr.fullname
-              puts 'RESULT'
-              print_array(current.push(fr))
-              return current
+        if(!current.last.friends.include?(friend))
+          current.last.friends.each do |fr|
+            puts fr.fullname + ' in loop'
+            # SKIP FRIENDS ALREADY SEARCHED
+            if(avoid.include?(fr))
+              next
             else
               # NOT AVOIDED + NOT WHAT WE WANT, THEREFORE SEARCH THEIR FRIENDS
               puts 'GOING TO NEXT'
@@ -72,7 +39,6 @@ class Expert < ActiveRecord::Base
               avoid.push(fr)
               # THIS PERSON IS PART OF OUR CURRENT PATH
               current.push(fr)
-              
               # check this persons friends to see if we can get our answer
               if(@cur = get_friend_path(avoid, current, friend))
                 puts 'ANSWER FOUND -  RESURSE TRUE'
@@ -86,16 +52,22 @@ class Expert < ActiveRecord::Base
               end
             end
           end    
+        else
+          # found path to friend
+          puts 'found ' + friend.fullname
+          puts 'RESULT'
+          puts_array(current.push(friend))
+          return current
         end
       else
         return false
-      end
-        
+      end    
     end
-    return false
+      return false
   end
   
-  def self.print_array(array)
+  
+  def self.print_results(array)
     if(array)
       @output = ""
       array.each do |ex|
@@ -108,7 +80,14 @@ class Expert < ActiveRecord::Base
     else
     return 'no path found'
     end
+  end
+  
+  def self.puts_array(array)
     
+      array.each do |ex|
+        puts ex.fullname
+      end
+     
   end
   
   

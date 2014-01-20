@@ -45,7 +45,7 @@
 		        <td><%= link_to @cur_expert.fullname, @cur_expert%></td>
 		        <td><%= @tag_text%></td>
 		        <%if (@search)%>
-		    		<td><%= Expert.print_array(Expert.get_friend_path(arr = [$current_expert], arr2 = [$current_expert], @cur_expert))%></td>
+		    		<td><%= Expert.print_results(Expert.get_friend_path(arr = [$current_expert], arr2 = [$current_expert], @cur_expert))%></td>
 		    	<%end%>
 		        <td><%= link_to 'Show', tag, class: 'btn-xs btn-success' %></td>
 		        <td><%= link_to 'Edit', edit_tag_path(tag), class: 'btn-xs btn-warning' %></td>
