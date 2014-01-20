@@ -12,6 +12,7 @@ gem "nokogiri", "~> 1.6.1"
 gem 'figaro'
 gem 'shortly'
 gem 'pg'
+gem 'will_paginate-bootstrap'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 group :development do

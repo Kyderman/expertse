@@ -10,17 +10,29 @@
 		<div class="col-md-6">
 		
 
-			<%= simple_form_for :search, :url => tags_path, :remote => true, :method => :get do |f| %>
-		  	<%= f.error_notification %>
-		
-		  	<div class="form-inputs">
-		    	<%= f.input :search, :as => :string%>
-		  	</div>
-		
-		  	<div class="form-actions">
-		    	<%= f.button :submit, :value => 'Search', :class => "btn btn-success btn-block" %>
-		  	</div>
-		<% end %>
+			<%if (!$current_expert)%>
+			<%@dis = true%>
+			<%@place_text = 'Must make an expert active before searching'%>
+			<%else%>
+			<%@dis = false%>
+			<%@place_text = 'Search tags...'%>
+		<%end%>
+			<%= simple_form_for :search, :url => tags_path, :method => :get, :class => "form-control" do |f| %>
+			  	<%= f.error_notification %>
+			
+			  	<div class="form-inputs">
+			    	<%= f.label 'Search', :required => false%>
+			    	<%= f.input :search, :label => false do %>
+			    	
+	    			<%= f.input_field :search, :placeholder => @place_text, :disabled => @dis %>
+	    			
+	    			<%end%>
+			  	</div>
+			
+			  	<div class="form-actions">
+			    	<%= f.button :submit, :value => 'Search', :class => "btn btn-success btn-block", :disabled => @dis %>
+			  	</div>
+			<% end %>
 		</div>
 		</div>
 		

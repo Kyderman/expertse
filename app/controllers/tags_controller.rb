@@ -13,6 +13,7 @@ class TagsController < ApplicationController
       @tags = Tag.all
       @search = false
     end
+    @tags = @tags.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /tags/1
