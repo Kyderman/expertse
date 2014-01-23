@@ -95,6 +95,7 @@
 	</div>
 
 	<div class="col-md-4">
+		
 	<div class="table-responsive">
 		<table class="table table-bordered">
 		  <thead>
@@ -103,7 +104,7 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-		    <% @expert.tags.each do |tag| %>
+		    <% @tags.each do |tag| %>
 		    <% @tag_text = tag.tag%>
 		      <tr>
 		        <td><%= @tag_text%> </td>

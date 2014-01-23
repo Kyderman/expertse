@@ -6,13 +6,8 @@ class ExpertsController < ApplicationController
   # GET /experts
   # GET /experts.json
   def index
-    @experts = Expert.all
     
-    respond_to do |format|
-      format.html{}
-      format.js{}
-    end
-    
+    @experts = Expert.all.paginate(:page => params[:page], :per_page => 10)
   end
   
   def set_current_expert
@@ -29,6 +24,7 @@ class ExpertsController < ApplicationController
   # GET /experts/1
   # GET /experts/1.json
   def show
+    @tags = @expert.tags
   end
 
   # GET /experts/new

@@ -1,6 +1,7 @@
 // import the CSS framework
 @import "bootstrap";
 
+
 // make all images responsive by default
 img {
   @extend .img-responsive;
@@ -10,6 +11,10 @@ img {
 .navbar-brand {
   font-size: inherit;
   }
+  
+
+
+
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
