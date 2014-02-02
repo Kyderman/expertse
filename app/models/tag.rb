@@ -9,7 +9,7 @@ class Tag < ActiveRecord::Base
     puts term
     if (term)
       # get list of tags that meet criteria
-      res = Tag.where('tag ILIKE ?', "#{term}%")
+      res = Tag.where('tag ILIKE ?', "%#{term}%")
       res.each do |t|
         # filter own tags and tags of friends
         if ($current_expert)

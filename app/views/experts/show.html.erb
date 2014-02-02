@@ -1,5 +1,6 @@
+<br>
 <div class="row">
-	<div class="jumbotron">
+	<div class="container">
 		<div class="col-md-6 well text-center">
 			<h1>
   				<%= @expert.fullname %><span class="badge"><%= @expert.friendships.length%></span>
@@ -43,19 +44,19 @@
 				<%= link_to 'Delete', @expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger btn-block' %>
 			</div>
 		</div>
-		<div class="col-md-offset-2 col-md-4 well">
+		<div class="col-md-offset-1 col-md-5 well">
 			<%if ($current_expert != @expert)%>
 				<%@dis = true%>
 				<%@place_text = 'Must make user active before search'%>
 			<%else%>
 				<%@dis = false%>
-				<%@place_text = 'Search tags...'%>
+				<%@place_text = 'Search via tags...'%>
 			<%end%>
 			<%= simple_form_for :search, :url => tags_path, :method => :get, :class => "form-control" do |f| %>
 			  	<%= f.error_notification %>
 			
 			  	<div class="form-inputs">
-			    	<%= f.label 'Search', :required => false%>
+			    	<%= f.label 'Find Friends', :required => false%>
 			    	<%= f.input :search, :label => false do %>
 			    	
 	    			<%= f.input_field :search, :placeholder => @place_text, :disabled => @dis %>
@@ -67,6 +68,8 @@
 			    	<%= f.button :submit, :value => 'Search', :class => "btn btn-success btn-block", :disabled => @dis %>
 			  	</div>
 			<% end %>
+			<br>
+			
 			
 		
 		
@@ -77,29 +80,13 @@
 
 
 <div class="col-md-12">
-	<div class="col-md-4">
-	<div class="table-responsive">
-		<table class="table table-bordered">
-		  <thead>
-		    <tr>
-		      <th>Friends</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <% @expert.friendships.each do |friendship| %>
-		    <% @friend = Expert.find(friendship.friend_id)%>
-		      <tr>
-		        <td><%= link_to @friend.fullname , @friend%> </td>
-		        <td><%= link_to 'Remove', friendship, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn-xs btn-danger' %></td>
-		      </tr>
-		    <% end %>
-		  </tbody>
-		</table>
-	</div>
-	</div>
 	
-	<div class="col-md-4">
-		
+	
+	<div class="col-md-6 well">
+		<div class="text-center">
+		<%= will_paginate @tags, renderer: BootstrapPagination::Rails, :param_name => 'tag_page', :class => "pagination-sm"  %>
+		</div>
+		<%= page_entries_info @tags %>
 	<div class="table-responsive">
 		<table class="table table-bordered">
 		  <thead>
@@ -109,10 +96,31 @@
 		  </thead>
 		  <tbody>
 		    <% @tags.each do |tag| %>
-		    <% @tag_text = tag.tag%>
 		      <tr>
-		        <td><%= @tag_text%> </td>
-		        
+		        <td><%= tag.tag%> </td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	</div>
+	</div>
+	<div class="col-md-offset-1 col-md-5 well">
+		<div class="text-center">
+		<%= will_paginate @friends, renderer: BootstrapPagination::Rails, :param_name => 'friend_page',:class => "pagination-sm"  %>
+		</div>
+		<%= page_entries_info @friends %>
+	<div class="table-responsive">
+		<table class="table table-bordered">
+		  <thead>
+		    <tr>
+		      <th>Friends</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <% @friends.each do |fr| %>
+		      <tr>
+		        <td><%= link_to fr.fullname , fr%> </td>
+		        <td><%= link_to 'Unfriend', @expert.friendships.where(:friend_id => fr.id).first, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn-xs btn-danger' %></td>
 		      </tr>
 		    <% end %>
 		  </tbody>
