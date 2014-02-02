@@ -1,45 +1,78 @@
 <div class="row">
-<div class="jumbotron text-center col-md-offset-3 col-md-6">
-<h1>
-  <%= @expert.fullname %><span class="badge"><%= @expert.friendships.length%></span>
-</h1>
+	<div class="jumbotron">
+		<div class="col-md-6 well text-center">
+			<h1>
+  				<%= @expert.fullname %><span class="badge"><%= @expert.friendships.length%></span>
+			</h1>
 
 
-<p>
-  <%= link_to @expert.website, @expert.website %>
-</p>
-<p>
-  (
-  <%= @expert.long_website %>
-  )
-</p>
-<%if ($current_expert == @expert)%>
-	<%= link_to 'Remove Active',remove_current_expert_expert_path(@expert), class: 'btn btn-danger btn-lg btn-block' %>
-<%else%>
-	<%= link_to 'Set Active',set_current_expert_expert_path(@expert), class: 'btn btn-success btn-lg btn-block' %>
-<%end%>
-<%= link_to 'Edit', edit_expert_path(@expert), :class => "btn btn-warning btn-lg btn-block" %>	        	
-<%if ($current_expert)%>
+			<p>
+  				<%= link_to @expert.website, @expert.website %>
+			</p>
+			<p>
+  				(
+  				<%= @expert.long_website %>
+  				)
+			</p>
+
+			<div class="row">
+				<%if ($current_expert == @expert)%>
+					<%= link_to 'Remove Active',remove_current_expert_expert_path(@expert), class: 'btn btn-danger btn-block' %>
+				<%else%>
+					<%= link_to 'Set Active',set_current_expert_expert_path(@expert), class: 'btn btn-success btn-block' %>
+				<%end%>
+				<%= link_to 'Edit', edit_expert_path(@expert), :class => "btn btn-warning btn-block" %>	        	
+				<%if ($current_expert)%>
 	
-	<%if (@expert == $current_expert)%>
+					<%if (@expert == $current_expert)%>
 			
 			
-	<%else%>
-		<%if (@curship = $current_expert.friendships.where(:friend_id => @expert.id).first)%>
+					<%else%>
+						<%if (@curship = $current_expert.friendships.where(:friend_id => @expert.id).first)%>
 				
-			<%= link_to 'Remove Friend', @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger btn-lg btn-block' %>
-		<%else%>
-			<%= link_to 'Add Friend', friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => @expert.id}), :method => :post, class: 'btn btn-success btn-lg btn-block' %>
-		<%end%>
+							<%= link_to 'Remove Friend', @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger btn-block' %>
+						<%else%>
+							<%= link_to 'Add Friend', friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => @expert.id}), :method => :post, class: 'btn btn-success btn-block' %>
+						<%end%>
 			
 			
-	<%end%>
+					<%end%>
 		
 	
-<%end%>
-<%= link_to 'Delete', @expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger btn-lg btn-block' %>
-
-</div>
+				<%end%>
+				<%= link_to 'Delete', @expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger btn-block' %>
+			</div>
+		</div>
+		<div class="col-md-offset-2 col-md-4 well">
+			<%if ($current_expert != @expert)%>
+				<%@dis = true%>
+				<%@place_text = 'Must make user active before search'%>
+			<%else%>
+				<%@dis = false%>
+				<%@place_text = 'Search tags...'%>
+			<%end%>
+			<%= simple_form_for :search, :url => tags_path, :method => :get, :class => "form-control" do |f| %>
+			  	<%= f.error_notification %>
+			
+			  	<div class="form-inputs">
+			    	<%= f.label 'Search', :required => false%>
+			    	<%= f.input :search, :label => false do %>
+			    	
+	    			<%= f.input_field :search, :placeholder => @place_text, :disabled => @dis %>
+	    			
+	    			<%end%>
+			  	</div>
+			
+			  	<div class="form-actions">
+			    	<%= f.button :submit, :value => 'Search', :class => "btn btn-success btn-block", :disabled => @dis %>
+			  	</div>
+			<% end %>
+			
+		
+		
+		
+		</div>
+	</div>
 </div>
 
 
@@ -64,36 +97,7 @@
 		</table>
 	</div>
 	</div>
-	<div class="col-md-4">
-		<%if ($current_expert != @expert)%>
-			<%@dis = true%>
-			<%@place_text = 'Must make user active before search'%>
-			<%else%>
-			<%@dis = false%>
-			<%@place_text = 'Search tags...'%>
-		<%end%>
-			<%= simple_form_for :search, :url => tags_path, :method => :get, :class => "form-control" do |f| %>
-			  	<%= f.error_notification %>
-			
-			  	<div class="form-inputs">
-			    	<%= f.label 'Search', :required => false%>
-			    	<%= f.input :search, :label => false do %>
-			    	
-	    			<%= f.input_field :search, :placeholder => @place_text, :disabled => @dis %>
-	    			
-	    			<%end%>
-			  	</div>
-			
-			  	<div class="form-actions">
-			    	<%= f.button :submit, :value => 'Search', :class => "btn btn-success btn-block", :disabled => @dis %>
-			  	</div>
-			<% end %>
-			
-		
-		
-		
-	</div>
-
+	
 	<div class="col-md-4">
 		
 	<div class="table-responsive">

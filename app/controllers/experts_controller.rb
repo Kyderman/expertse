@@ -25,6 +25,7 @@ class ExpertsController < ApplicationController
   # GET /experts/1.json
   def show
     @tags = @expert.tags
+    
   end
 
   # GET /experts/new

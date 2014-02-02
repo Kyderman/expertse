@@ -41,11 +41,7 @@
 		    <%@tags.each do |tag| %>
 		    
 		    <%@cur_expert = Expert.find(tag.expert_id)%>
-		    <%if (@search)%>
-		    	<%if ($current_expert.friends.include?(@cur_expert))%>
-		    		<%next%>
-		    	<%end%>
-		    <%end%>
+		    
 		    <%@tag_text = tag.tag%>
 		      <tr>
 		        <td><%= link_to @cur_expert.fullname, @cur_expert%></td>

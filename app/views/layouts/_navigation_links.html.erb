@@ -1,3 +1,10 @@
+<%if (!$current_expert)%>
+			<%@dis = true%>
+			<%@place_text = 'Must make an expert active before searching'%>
+			<%else%>
+			<%@dis = false%> 
+			<%@place_text = 'Search tags...'%>
+		<%end%>
 <ul class="nav navbar-nav">
 	<li class="dropdown">
 		<a href="#" class="dropdown-toggle" data-toggle="dropdown">View <b class="caret"></b></a>
@@ -13,7 +20,9 @@
 			</li>
 		</ul>
 	</li>
+	
 </ul>
+
 <%if ($current_expert)%>
 	<p class="navbar-text navbar-right">Active expert: <%= link_to $current_expert.firstname + ' ' + $current_expert.surname, $current_expert%></p>
 <%else%>

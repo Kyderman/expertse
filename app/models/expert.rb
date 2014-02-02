@@ -82,6 +82,8 @@ class Expert < ActiveRecord::Base
     end
   end
   
+  
+  
   def self.puts_array(array)
     
       array.each do |ex|
