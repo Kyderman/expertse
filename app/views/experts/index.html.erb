@@ -1,13 +1,14 @@
 	
-
-	<div class="jumbotron">
-		<div class="row">
-		<div class="col-md-6">
+<br>
+	<div class="row">
+		<div class="container">
+		<div class="col-md-6 well">
+			
 			<h1>Experts</h1>
 		
-			<%= link_to 'Create new', new_expert_path, class: "btn btn-primary btn-lg" %>
+			<%= link_to 'Create new', new_expert_path, class: "btn btn-primary" %>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-offset-1 col-md-5 well">
 		
 
 			<%if (!$current_expert)%>
@@ -15,13 +16,13 @@
 			<%@place_text = 'Must make an expert active before searching'%>
 			<%else%>
 			<%@dis = false%> 
-			<%@place_text = 'Search tags...'%>
+			<%@place_text = 'Search via tags...'%>
 		<%end%>
 			<%= simple_form_for :search, :url => tags_path, :method => :get, :class => "form-control" do |f| %>
 			  	<%= f.error_notification %>
 			
 			  	<div class="form-inputs">
-			    	<%= f.label 'Search', :required => false%>
+			    	<%= f.label 'Find Friends', :required => false%>
 			    	<%= f.input :search, :label => false do %>
 			    	
 	    			<%= f.input_field :search, :placeholder => @place_text, :disabled => @dis %>
@@ -42,7 +43,12 @@
 
 
 <div class="row">
-	<div class="col-md-12">
+	<div class="container">
+	<div class="col-md-12 well">
+		<div class="text-center">
+		<%= will_paginate @experts, renderer: BootstrapPagination::Rails%>
+		</div>
+		<%= page_entries_info @experts %>
 	<div class="table-responsive">
 		<table class="table table-bordered">
 		  <thead>
@@ -100,6 +106,7 @@
 		    <% end %>
 		  </tbody>
 		</table>
+	</div>
 	</div>
 	</div>
 </div>
