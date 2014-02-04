@@ -1,17 +1,14 @@
 class FriendshipsController < ApplicationController
-  before_action :set_friendship, only: [:show, :destroy]
+  before_action :set_friendship, only: [:destroy]
 
   # GET /friendships
   # GET /friendships.json
   def index
-    @friendships = Friendship.all
+    
+    @friendships = Friendship.all.paginate(:page => params[:page], :per_page => 10)
   end
 
-  # GET /friendships/1
-  # GET /friendships/1.json
-  def show
-  end
-
+  
   # GET /friendships/new
   def new
     @friendship = Friendship.new
