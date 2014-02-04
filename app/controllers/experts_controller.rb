@@ -23,8 +23,8 @@ class ExpertsController < ApplicationController
   # GET /experts/1
   # GET /experts/1.json
   def show
-    @tags = @expert.tags.paginate(:page => params[:tag_page], :per_page => 10)
-    @friends = @expert.friends.paginate(:page => params[:friend_page], :per_page => 10)
+    @tags = @expert.tags.paginate(:page => params[:tag_page], :per_page => 5)
+    @friends = @expert.friends.paginate(:page => params[:friend_page], :per_page => 5)
   end
 
   # GET /experts/new

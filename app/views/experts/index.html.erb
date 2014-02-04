@@ -48,13 +48,13 @@
 		<div class="text-center">
 		<%= will_paginate @experts, renderer: BootstrapPagination::Rails%>
 		</div>
+		
 		<%= page_entries_info @experts %>
 	<div class="table-responsive">
-		<table class="table table-bordered">
+		<table class="table table-striped">
 		  <thead>
 		    <tr>
-		      <th>First Name</th>
-		      <th>Surname</th>
+		      <th>Name</th>
 		      <th>Website</th>
 		      <th>Friends</th>
 		      <th></th>
@@ -63,35 +63,35 @@
 		      <%end%>
 		      <th></th>
 		      <th></th>
-		      <th></th>
+		      
 		    </tr>
 		  </thead>
 		
 		  <tbody>
 		    <% @experts.each do |expert| %>
 		      <tr>
-		        <td><%= expert.firstname %></td>
-		        <td><%= expert.surname %></td>
+		        <td><%= link_to expert.fullname, expert %></td>
 		        <td><%= link_to expert.website, expert.website %></td>
 		        <td><%= expert.friendships.size %></td>
+		        
 		        <td>
 		        	<%if ($current_expert == expert)%>
-		        		<%= link_to 'Remove Active',remove_current_expert_expert_path(expert), class: 'btn btn-xs btn-danger' %>
+		        		<%= link_to 'Remove Active',remove_current_expert_expert_path(expert), class: 'btn btn-block btn-danger' %>
 		        	<%else%>
-		        		<%= link_to 'Set Active',set_current_expert_expert_path(expert),  class: 'btn btn-xs btn-success' %>
+		        		<%= link_to 'Set Active',set_current_expert_expert_path(expert),  class: 'btn btn-block btn-success' %>
 		        	<%end%>
 		        	</td>
 		        	<%if ($current_expert)%>
 		        	<td>
 		        		<%if (expert == $current_expert)%>
 		        			
-		        			<button type="button" class="btn btn-xs btn-success" disabled="disabled">N/A</button>
+		        			<button type="button" class="btn btn-block btn-success" disabled="disabled">N/A</button>
 		        			<%else%>
 		        			<%if (@curship = $current_expert.friendships.where(:friend_id => expert.id).first)%>
 		        				
-		        				<%= link_to 'Remove Friend', @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: ' btn btn-xs btn-danger' %>
+		        				<%= link_to 'Remove Friend', @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-block btn-danger' %>
 		        			<%else%>
-		        			<%= link_to 'Add Friend', friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => expert.id}), :method => :post, class: 'btn btn-xs btn-success' %>
+		        			<%= link_to 'Add Friend', friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => expert.id}), :method => :post, class: 'btn btn-block btn-success' %>
 		        			<%end%>
 		        			
 		        			
@@ -99,9 +99,9 @@
 		        		
 		        	</td>
 		        	<%end%>
-		        <td><%= link_to 'Show', expert, class: 'btn-xs btn-success' %></td>
-		        <td><%= link_to 'Edit', edit_expert_path(expert), class: 'btn-xs btn-warning' %></td>
-		        <td><%= link_to 'Remove', expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn-xs btn-danger' %></td>
+		        
+		        <td><%= link_to 'Edit', edit_expert_path(expert), class: 'btn btn-block btn-warning' %></td>
+		        <td><%= link_to 'Remove', expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-block btn-danger' %></td>
 		      </tr>
 		    <% end %>
 		  </tbody>
