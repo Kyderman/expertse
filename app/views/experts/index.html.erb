@@ -1,7 +1,7 @@
 	
 <br>
 	<div class="row">
-		<div class="container">
+		<div class="col-md-12">
 		<div class="col-md-6 well">
 			
 			<h1>Experts</h1>
@@ -42,8 +42,8 @@
 	</div>
 
 
-<div class="row">
-	<div class="container">
+
+	
 	<div class="col-md-12 well">
 		<div class="text-center">
 		<%= will_paginate @experts, renderer: BootstrapPagination::Rails%>
@@ -72,7 +72,7 @@
 		      <tr>
 		        <td><%= link_to expert.fullname, expert %></td>
 		        <td><%= link_to expert.website, expert.website %></td>
-		        <td><%= expert.friendships.size %></td>
+		        <td><span class="badge"><%= expert.friendships.size %></span></td>
 		        
 		        <td>
 		        	<%if ($current_expert == expert)%>
@@ -89,9 +89,9 @@
 		        			<%else%>
 		        			<%if (@curship = $current_expert.friendships.where(:friend_id => expert.id).first)%>
 		        				
-		        				<%= link_to '<span class="glyphicon glyphicon-minus"</span>'.html_safe, @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-block btn-danger' %>
+		        				<%= link_to '<span class="glyphicon glyphicon-minus"></span> Friend'.html_safe, @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-block btn-danger' %>
 		        			<%else%>
-		        			<%= link_to '<span class="glyphicon glyphicon-plus"</span>'.html_safe, friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => expert.id}), :method => :post, class: 'btn btn-block btn-success' %>
+		        				<%= link_to '<span class="glyphicon glyphicon-plus"></span> Friend'.html_safe, friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => expert.id}), :method => :post, class: 'btn btn-block btn-success' %>
 		        			<%end%>
 		        			
 		        			
@@ -109,7 +109,7 @@
 	</div>
 	</div>
 	</div>
-</div>
+
 
 
 

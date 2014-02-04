@@ -1,6 +1,6 @@
 <br>
 <div class="row">
-	<div class="container">
+	<div class="col-md-12">
 		<div class="col-md-6 well text-center">
 			<h1>
   				<%= @expert.fullname %><span class="badge"><%= @expert.friendships.length%></span>
@@ -22,7 +22,7 @@
 				<%else%>
 					<%= link_to 'Set Active',set_current_expert_expert_path(@expert), class: 'btn btn-success btn-block' %>
 				<%end%>
-				<%= link_to 'Edit', edit_expert_path(@expert), :class => "btn btn-warning btn-block" %>	        	
+				<%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_expert_path(@expert), :class => "btn btn-warning btn-block" %>	        	
 				<%if ($current_expert)%>
 	
 					<%if (@expert == $current_expert)%>
@@ -31,9 +31,9 @@
 					<%else%>
 						<%if (@curship = $current_expert.friendships.where(:friend_id => @expert.id).first)%>
 				
-							<%= link_to 'Remove Friend', @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger btn-block' %>
+							<%= link_to '<span class="glyphicon glyphicon-minus"></span> Friend'.html_safe, @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger btn-block' %>
 						<%else%>
-							<%= link_to 'Add Friend', friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => @expert.id}), :method => :post, class: 'btn btn-success btn-block' %>
+							<%= link_to '<span class="glyphicon glyphicon-plus"></span> Friend'.html_safe, friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => @expert.id}), :method => :post, class: 'btn btn-success btn-block' %>
 						<%end%>
 			
 			
@@ -41,7 +41,7 @@
 		
 	
 				<%end%>
-				<%= link_to 'Delete', @expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger btn-block' %>
+				<%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, @expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger btn-block' %>
 			</div>
 		</div>
 		<div class="col-md-offset-1 col-md-5 well">
@@ -79,8 +79,8 @@
 </div>
 
 
-<div class="col-md-12">
-	
+<div class="row">
+	<div class="col-md-12">
 	
 	<div class="col-md-6 well">
 		<div class="text-center">
@@ -88,16 +88,18 @@
 		</div>
 		<%= page_entries_info @tags %>
 	<div class="table-responsive">
-		<table class="table table-bordered">
+		<table class="table table-striped">
 		  <thead>
 		    <tr>
 		      <th>Tags</th>
+		      <th></th>
 		    </tr>
 		  </thead>
 		  <tbody>
 		    <% @tags.each do |tag| %>
 		      <tr>
 		        <td><%= tag.tag%> </td>
+		        <td><%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, tag, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-block btn-danger' %></td>
 		      </tr>
 		    <% end %>
 		  </tbody>
@@ -110,7 +112,7 @@
 		</div>
 		<%= page_entries_info @friends %>
 	<div class="table-responsive">
-		<table class="table table-bordered">
+		<table class="table table-striped">
 		  <thead>
 		    <tr>
 		      <th>Friends</th>
@@ -120,11 +122,12 @@
 		    <% @friends.each do |fr| %>
 		      <tr>
 		        <td><%= link_to fr.fullname , fr%> </td>
-		        <td><%= link_to 'Unfriend', @expert.friendships.where(:friend_id => fr.id).first, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn-xs btn-danger' %></td>
+		        <td><%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, @expert.friendships.where(:friend_id => fr.id).first, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-block btn-danger' %></td>
 		      </tr>
 		    <% end %>
 		  </tbody>
 		</table>
+	</div>
 	</div>
 	</div>
 </div>

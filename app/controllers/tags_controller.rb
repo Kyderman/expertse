@@ -16,19 +16,14 @@ class TagsController < ApplicationController
     @tags = @tags.paginate(:page => params[:page], :per_page => 10)
   end
 
-  # GET /tags/1
-  # GET /tags/1.json
-  def show
-  end
+  
 
   # GET /tags/new
   def new
     @tag = Tag.new
   end
 
-  # GET /tags/1/edit
-  def edit
-  end
+  
 
   # POST /tags
   # POST /tags.json
@@ -46,19 +41,7 @@ class TagsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tags/1
-  # PATCH/PUT /tags/1.json
-  def update
-    respond_to do |format|
-      if @tag.update(tag_params)
-        format.html { redirect_to @tag, notice: 'Tag was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @tag.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+ 
 
   # DELETE /tags/1
   # DELETE /tags/1.json
