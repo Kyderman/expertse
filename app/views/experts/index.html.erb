@@ -89,9 +89,9 @@
 		        			<%else%>
 		        			<%if (@curship = $current_expert.friendships.where(:friend_id => expert.id).first)%>
 		        				
-		        				<%= link_to 'Remove Friend', @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-block btn-danger' %>
+		        				<%= link_to '<span class="glyphicon glyphicon-minus"</span>'.html_safe, @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-block btn-danger' %>
 		        			<%else%>
-		        			<%= link_to 'Add Friend', friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => expert.id}), :method => :post, class: 'btn btn-block btn-success' %>
+		        			<%= link_to '<span class="glyphicon glyphicon-plus"</span>'.html_safe, friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => expert.id}), :method => :post, class: 'btn btn-block btn-success' %>
 		        			<%end%>
 		        			
 		        			
@@ -100,8 +100,8 @@
 		        	</td>
 		        	<%end%>
 		        
-		        <td><%= link_to 'Edit', edit_expert_path(expert), class: 'btn btn-block btn-warning' %></td>
-		        <td><%= link_to 'Remove', expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-block btn-danger' %></td>
+		        <td><%= link_to '<span class="glyphicon glyphicon-pencil"</span>'.html_safe, edit_expert_path(expert), class: 'btn btn-block btn-warning' %></td>
+		        <td><%= link_to '<span class="glyphicon glyphicon-trash"</span>'.html_safe, expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-block btn-danger' %></td>
 		      </tr>
 		    <% end %>
 		  </tbody>
