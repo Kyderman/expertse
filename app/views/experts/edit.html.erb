@@ -1,17 +1,12 @@
-
-
 <div class="container">
-<div class="col-md-offset-2 col-md-8 well">
-<h1>Edit -  <%= link_to @expert.fullname, @expert%></h1>
-
-</div>
-	
-<div class="col-md-offset-2 col-md-8 well">
-
-	<%= render 'form' %>
-
-
+	<div class="col-md-offset-2 col-md-8 well">
+		<h1>Edit -  <%= link_to @expert.fullname, @expert%></h1>
+	</div>	
+	<div class="col-md-offset-2 col-md-8 well">
+		<%= render 'form' %>
+		
+		<%# form partial leaves over a div, so we can insert this back button in for different locations based on edit/new%>
 		<%= link_to 'Back', experts_path, :class => "btn btn-danger" %>
+		</div>
 	</div>
-</div>
 </div>

@@ -1,122 +1,87 @@
-	
-
-	<div class="row">
-		<div class="col-md-6">
+<div class="row">
+	<div class="col-md-6">
 		<div class="well">
-			
 			<h1>Experts</h1>
-		
 			<%= link_to '<span class="glyphicon glyphicon-plus"></span> New'.html_safe, new_expert_path, class: "btn btn-primary" %>
 		</div>
-		</div>
-		<div class="col-md-6">
-			<div class="well">
-		
-
-			<%if (!$current_expert)%>
-			<%@dis = true%>
-			<%@place_text = 'Must make an expert active before searching'%>
-			<%else%>
-			<%@dis = false%> 
-			<%@place_text = 'Search via tags...'%>
-		<%end%>
+	</div>
+	<div class="col-md-6">
+		<div class="well">
 			<%= simple_form_for :search, :url => tags_path, :method => :get, :class => "form-control" do |f| %>
-			  	<%= f.error_notification %>
+				<%= f.error_notification %>
 			
 			  	<div class="form-inputs">
 			    	<%= f.label 'Find Friends', :required => false%>
 			    	<%= f.input :search, :label => false do %>
-			    	
-	    			<%= f.input_field :search, :placeholder => @place_text, :disabled => @dis %>
-	    			
+	    				<%= f.input_field :search, :placeholder => @search_text, :disabled => @dis %>
 	    			<%end%>
 			  	</div>
-			
 			  	<div class="form-actions">
 			    	<%= f.button :submit, :value => 'Search', :class => "btn btn-success btn-block", :disabled => @dis %>
 			  	</div>
 			<% end %>
 		</div>
-		</div>
-		</div>
-	
-		
 	</div>
-
-
-
-	
-	<div class="col-md-12 well">
-		<div class="text-center">
+</div>
+<div class="col-md-12 well">
+	<div class="text-center">
 		<%= will_paginate @experts, renderer: BootstrapPagination::Rails%>
-		</div>
-		<div class="well well-sm">
-		<%= page_entries_info @experts %>
-		</div>
+	</div>
+	<div class="well well-sm">
+		<%= page_entries_info @experts%>
+	</div>
 	<div class="table-responsive">
 		<table class="table table-striped">
-		  <thead>
-		    <tr>
-		      <th>Name</th>
-		      <th>Website</th>
-		      <th>Friends</th>
-		      <th></th>
-		      <%if ($current_expert)%>
-		      <th></th>
-		      <%end%>
-		      <th></th>
-		      <th></th>
-		      
-		    </tr>
-		  </thead>
-		
-		  <tbody>
-		    <% @experts.each do |expert| %>
-		      <tr>
-		        <td><%= link_to expert.fullname, expert %></td>
-		        <td><%= link_to expert.website, expert.website %></td>
-		        <td><span class="badge"><%= expert.friendships.size %></span></td>
-		        
-		        <td>
-		        	<%if ($current_expert == expert)%>
-		        		<%= link_to 'Remove Active',remove_current_expert_expert_path(expert), class: 'btn btn-block btn-danger' %>
-		        	<%else%>
-		        		<%= link_to 'Set Active',set_current_expert_expert_path(expert),  class: 'btn btn-block btn-success' %>
-		        	<%end%>
-		        	</td>
-		        	<%if ($current_expert)%>
-		        	<td>
-		        		<%if (expert == $current_expert)%>
-		        			
-		        			<button type="button" class="btn btn-block btn-success" disabled="disabled">N/A</button>
+			<thead>
+		    	<tr>
+		      		<th>Name</th>
+		      		<th>Website</th>
+		      		<th>Friends</th>
+		      		<th></th>
+		      		<%if ($current_expert)%>
+		      			<th></th>
+		      		<%end%>
+		      		<th></th>
+		      		<th></th>
+		    	</tr>
+		  	</thead>
+		  	<tbody>
+		    	<% @experts.each do |expert| %>
+		      		<tr>
+		        		<td><%= link_to expert.fullname, expert %></td>
+		        		<td><%= link_to expert.website, expert.website %></td>
+		        		<td><span class="badge"><%= expert.friendships.size %></span></td>
+		        		<td>
+		        			<%if ($current_expert == expert)%>
+		        				<%= link_to 'Remove Active',remove_current_expert_expert_path(expert), class: 'btn btn-block btn-danger' %>
 		        			<%else%>
-		        			<%if (@curship = $current_expert.friendships.where(:friend_id => expert.id).first)%>
-		        				
-		        				<%= link_to '<span class="glyphicon glyphicon-minus"></span> Friend'.html_safe, @curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-block btn-danger' %>
-		        			<%else%>
-		        				<%= link_to '<span class="glyphicon glyphicon-plus"></span> Friend'.html_safe, friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => expert.id}), :method => :post, class: 'btn btn-block btn-success' %>
+		        				<%= link_to 'Set Active',set_current_expert_expert_path(expert),  class: 'btn btn-block btn-success' %>
 		        			<%end%>
-		        			
-		        			
+		        		</td>
+		        		<%if ($current_expert)%>
+		        			<td>
+		        				<%if (expert == $current_expert)%>
+		        					<button type="button" class="btn btn-block btn-success" disabled="disabled">N/A</button>
+		        				<%else%>
+		        					<%if (@curship = $current_expert.friendships.where(:friend_id => expert.id).first)%>
+		        						<%= link_to '<span class="glyphicon glyphicon-minus"></span> Friend'.html_safe, 
+		        						@curship, controller: 'friendships', method: :delete, data: { confirm: 'Are you sure?' },
+		        						class: 'btn btn-block btn-danger' %>
+		        					<%else%>
+		        						<%= link_to '<span class="glyphicon glyphicon-plus"></span> Friend'.html_safe, 
+		        						friendships_path(:friendship =>{:expert_id => $current_expert.id, :friend_id => expert.id}),
+		        						:method => :post, class: 'btn btn-block btn-success' %>
+		        					<%end%>
+		        				<%end%>
+		        			</td>
 		        		<%end%>
-		        		
-		        	</td>
-		        	<%end%>
-		        
-		        <td><%= link_to '<span class="glyphicon glyphicon-pencil"</span>'.html_safe, edit_expert_path(expert), class: 'btn btn-block btn-warning' %></td>
-		        <td><%= link_to '<span class="glyphicon glyphicon-trash"</span>'.html_safe, expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-block btn-danger' %></td>
-		      </tr>
-		    <% end %>
-		  </tbody>
+		        		<td><%= link_to '<span class="glyphicon glyphicon-pencil"</span>'.html_safe, 
+		        		edit_expert_path(expert), class: 'btn btn-block btn-warning' %></td>
+		        		<td><%= link_to '<span class="glyphicon glyphicon-trash"</span>'.html_safe, 
+		        		expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-block btn-danger' %></td>
+		      		</tr>
+		    	<% end %>
+		  	</tbody>
 		</table>
 	</div>
-	</div>
-	</div>
-
-
-
-
-
-
-
-
+</div>

@@ -1,24 +1,21 @@
-
 <%= simple_form_for @expert, :class => "form-control" do |f| %>
-      <%= f.error_notification %>
+	<%= f.error_notification %>
    
+  	<div class="form-inputs">
+	    <%= f.input :firstname%>
+	    <%= f.input :surname%>
+	    <%= f.label :long_website, :label => "Website"%>
+	    
+    	<div class="input-group">
+  			<%= f.input :long_website, :wrapper => :prepend, :label => false do %>
+    			<%= content_tag :span, "http://", :class => "input-group-addon" %>
+    			<%= f.input_field :long_website, :placeholder => "example.co.uk" %>
+  			<% end %>
+    	</div>
+  	</div>
 
-  <div class="form-inputs">
-    <%= f.input :firstname%>
-    <%= f.input :surname%>
-    <%= f.label :long_website, :label => "Website"%>
-    
-    <div class="input-group">
-  		<%= f.input :long_website, :wrapper => :prepend, :label => false do %>
-    	<%= content_tag :span, "http://", :class => "input-group-addon" %>
-    	<%= f.input_field :long_website, :placeholder => "example.co.uk" %>
-	</div>
-  <% end %>
-    
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, :value => 'Finish', :class => "btn btn-success pull-right" %>
-  
+  	<div class="form-actions">
+    	<%= f.button :submit, :value => 'Finish', :class => "btn btn-success pull-right" %>
+  	<%# Purposefully no </div> here for layout reasons%>
 <% end %>
 

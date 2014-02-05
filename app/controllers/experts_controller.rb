@@ -7,6 +7,14 @@ class ExpertsController < ApplicationController
   # GET /experts.json
   def index
     @experts = Expert.all.paginate(:page => params[:page], :per_page => 10)
+    
+    if($current_expert)
+      @search_text = 'Search via tags...'
+      @dis = false
+    else
+      @search_text = 'Must make an expert active before searching'
+      @dis = true
+    end
   end
   
   def set_current_expert
@@ -25,6 +33,14 @@ class ExpertsController < ApplicationController
   def show
     @tags = @expert.tags.paginate(:page => params[:tag_page], :per_page => 5)
     @friends = @expert.friends.paginate(:page => params[:friend_page], :per_page => 5)
+    
+    if($current_expert)
+      @search_text = 'Search via tags...'
+      @dis = false
+    else
+      @search_text = 'Must make an expert active before searching'
+      @dis = true
+    end
   end
 
   # GET /experts/new
