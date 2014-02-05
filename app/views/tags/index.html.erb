@@ -1,16 +1,15 @@
-<br>
+
 <div class="row">
-	<div class="container">
-		<div class="col-md-6 well">
+	<div class="col-md-6">
+		<div class="well">
 			<h1>Tags</h1>
-			<%= link_to 'Create new', new_tag_path, class: "btn btn-primary" %>
+			<%= link_to '<span class="glyphicon glyphicon-plus"></span> New'.html_safe, new_tag_path, class: "btn btn-primary" %>
 		</div>
 	</div>	
 </div>
 
 
-<div class="row">
-	<div class="container">
+
 		<div class="col-md-12 well">
 		<div class="text-center">
 			
@@ -19,7 +18,7 @@
 		</div>
 		<%= page_entries_info @tags %>
 	<div class="table-responsive">
-		<table class="table table-bordered">
+		<table class="table table-striped">
 		  <thead>
 		    <tr>
 		      <th>Expert</th>
@@ -44,15 +43,14 @@
 		        <%if (@search)%>
 		    		<td><%= Expert.print_results(Expert.get_friend_path(arr = [$current_expert], arr2 = [$current_expert], @cur_expert))%></td>
 		    	<%end%>
-		        <td><%= link_to 'Remove', tag, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn-xs btn-danger' %></td>
+		        <td><%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, tag, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-block btn-danger' %></td>
 		      </tr>
 		    <% end %>
 		  </tbody>
 		</table>
 	</div>
 	
-	</div>
-	</div>
+	
 	
 </div>
 

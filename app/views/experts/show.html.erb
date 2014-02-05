@@ -1,7 +1,7 @@
-<br>
 <div class="row">
-	<div class="col-md-12">
-		<div class="col-md-6 well text-center">
+	
+		<div class="col-md-6 text-center">
+			<div class="well">
 			<h1>
   				<%= @expert.fullname %><span class="badge"><%= @expert.friendships.length%></span>
 			</h1>
@@ -43,8 +43,10 @@
 				<%end%>
 				<%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, @expert, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger btn-block' %>
 			</div>
+			</div>
 		</div>
-		<div class="col-md-offset-1 col-md-5 well">
+		<div class="col-md-6">
+			<div class="well">
 			<%if ($current_expert != @expert)%>
 				<%@dis = true%>
 				<%@place_text = 'Must make user active before search'%>
@@ -73,16 +75,17 @@
 			
 		
 		
-		
 		</div>
-	</div>
+		</div>
+	
 </div>
 
 
 <div class="row">
-	<div class="col-md-12">
 	
-	<div class="col-md-6 well">
+	
+	<div class="col-md-6">
+		<div class="well">
 		<div class="text-center">
 		<%= will_paginate @tags, renderer: BootstrapPagination::Rails, :param_name => 'tag_page', :class => "pagination-sm"  %>
 		</div>
@@ -106,7 +109,9 @@
 		</table>
 	</div>
 	</div>
-	<div class="col-md-offset-1 col-md-5 well">
+	</div>
+	<div class="col-md-6">
+		<div class="well">
 		<div class="text-center">
 		<%= will_paginate @friends, renderer: BootstrapPagination::Rails, :param_name => 'friend_page',:class => "pagination-sm"  %>
 		</div>
@@ -116,6 +121,7 @@
 		  <thead>
 		    <tr>
 		      <th>Friends</th>
+		      <th></th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -127,6 +133,7 @@
 		    <% end %>
 		  </tbody>
 		</table>
+	</div>
 	</div>
 	</div>
 	</div>

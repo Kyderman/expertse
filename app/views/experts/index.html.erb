@@ -1,14 +1,16 @@
 	
-<br>
+
 	<div class="row">
-		<div class="col-md-12">
-		<div class="col-md-6 well">
+		<div class="col-md-6">
+		<div class="well">
 			
 			<h1>Experts</h1>
 		
-			<%= link_to 'Create new', new_expert_path, class: "btn btn-primary" %>
+			<%= link_to '<span class="glyphicon glyphicon-plus"></span> New'.html_safe, new_expert_path, class: "btn btn-primary" %>
 		</div>
-		<div class="col-md-offset-1 col-md-5 well">
+		</div>
+		<div class="col-md-6">
+			<div class="well">
 		
 
 			<%if (!$current_expert)%>
@@ -36,7 +38,7 @@
 			<% end %>
 		</div>
 		</div>
-		
+		</div>
 	
 		
 	</div>
