@@ -7,7 +7,8 @@ class TagsController < ApplicationController
     #Simpleforms doesnt like playing with searching...
     
     if(params[:search])
-      @tags = Tag.search(params[:search].first[1])
+      @term = params[:search].first[1]
+      @tags = Tag.search(@term)
       @search = true
     else
       @tags = Tag.all

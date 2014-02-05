@@ -78,7 +78,7 @@ class Expert < ActiveRecord::Base
       end
       return @output
     else
-    return 'no path found'
+    return 'No possible path to expert'
     end
   end
   

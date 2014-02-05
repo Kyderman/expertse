@@ -5,6 +5,7 @@ class Tag < ActiveRecord::Base
   validates :tag, :presence => true
   
   
+  
   def self.search(term)
     puts term
     if (term)
@@ -22,5 +23,12 @@ class Tag < ActiveRecord::Base
       res = Tag.all
     end
     return res
+  end
+  
+  def self.getheader(search)
+    if search
+      return 'Search Results'
+    end
+    return 'Tags'
   end
 end
