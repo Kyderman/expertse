@@ -5,7 +5,6 @@ class TagsController < ApplicationController
   # GET /tags.json
   def index
     #Simpleforms doesnt like playing with searching...
-    
     if(params[:search])
       @term = params[:search].first[1]
       @tags = Tag.search(@term)
@@ -17,17 +16,12 @@ class TagsController < ApplicationController
     @tags = @tags.paginate(:page => params[:page], :per_page => 10)
   end
 
-  
-
   # GET /tags/new
   def new
     @tag = Tag.new
   end
-
   
-
   # POST /tags
-  # POST /tags.json
   def create
     @tag = Tag.new(tag_params)
 
@@ -43,12 +37,9 @@ class TagsController < ApplicationController
  
 
   # DELETE /tags/1
-  # DELETE /tags/1.json
   def destroy
     @tag.destroy
     redirect_to :back
-      
-    
   end
 
   private

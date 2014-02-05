@@ -11,11 +11,20 @@ class Expert < ActiveRecord::Base
   
   has_many :tags, :dependent => :destroy
   
+  # This is probably the most important function of the task
+  # I am using a recursive method to find the shortest path from 1 user to another
+  # Whilst still taking in to account the criteria given (e.g do not include friends we already have)
   
+  # avoid is the array of experts that we can ignore, they are either already part of the path or confirmed
+  # to not result in a path to the friend we want
   
+  # current is the array of experts in the current path we are creating
   
+  # friend is the expert we are trying to get to.
   
+  # The current_expert that we are searching from is to be initialised in both the avoid and current
   
+  # I have left in the put methods, as it will allow you to see the process taken through the recursive function
   def self.get_friend_path(avoid, current, friend)
     puts 'CURRENT ARRAY'
     self.puts_array(current)
@@ -92,17 +101,8 @@ class Expert < ActiveRecord::Base
      
   end
   
-  
-  
-  
-  
-  
-  
-  
   def fullname
     "#{firstname} #{surname}"
-    
-    #puts self.get_friend_path
   end
   
   
@@ -157,9 +157,4 @@ class Expert < ActiveRecord::Base
       return false
     end  
   end
-  
-  
-  
-  
-  
 end
