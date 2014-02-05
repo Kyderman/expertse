@@ -16,14 +16,15 @@
 	</li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
-	<div class="col-md-12"
+	<div class="col-md-12">
 	<li>
 <%if ($current_expert)%>
-	<p class="navbar-text">Active expert: <%= link_to $current_expert.firstname + ' ' + $current_expert.surname, $current_expert%></p>
+	<p class="navbar-text">Active expert: <%= link_to $current_expert.fullname, $current_expert%></p>
 <%else%>
 	<p class="navbar-text">No expert selected...</p>
 <%end%>
 	</li>
+	
 </ul>
 </div>
 
