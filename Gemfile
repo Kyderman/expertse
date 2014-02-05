@@ -15,6 +15,7 @@ gem 'pg'
 gem 'will_paginate-bootstrap'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
@@ -29,3 +30,5 @@ group :test do
   gem 'database_cleaner', '1.0.1'
   gem 'email_spec'
 end
+
+gem 'rails_12factor', group: :production
