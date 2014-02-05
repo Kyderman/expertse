@@ -1,9 +1,6 @@
 class ExpertsController < ApplicationController
   before_action :set_expert, only: [:show, :edit, :update, :destroy]
   
-  # Global variable for our current expert
-  $current_expert = nil
-  
   # GET /experts
   def index
     @experts = Expert.all.paginate(:page => params[:page], :per_page => 10)
