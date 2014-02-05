@@ -41,7 +41,8 @@ main {
   @extend .container;
   padding-bottom: 51px;
   width: 100%;
-  margin-top: 51px; // accommodate the navbar
+  margin-top: 51px;
+  background-color: #ffffff // accommodate the navbar
   }
 section {
   @extend .row;
