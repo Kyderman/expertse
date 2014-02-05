@@ -1,13 +1,12 @@
 class ExpertsController < ApplicationController
-  require 'nokogiri'
-  require 'open-uri'
   before_action :set_expert, only: [:show, :edit, :update, :destroy]
+  
+  # Global variable for our current expert
   $current_expert = nil
+  
   # GET /experts
-  # GET /experts.json
   def index
     @experts = Expert.all.paginate(:page => params[:page], :per_page => 10)
-    
     if($current_expert)
       @search_text = 'Search via tags...'
       @dis = false
@@ -17,29 +16,29 @@ class ExpertsController < ApplicationController
     end
   end
   
+  # set current expert
   def set_current_expert
     $current_expert = Expert.find(params[:id])
-    
     redirect_to :back
   end
   
+  # remove current expert
   def remove_current_expert
     $current_expert = nil
     redirect_to :back
   end
 
   # GET /experts/1
-  # GET /experts/1.json
   def show
     @tags = @expert.tags.paginate(:page => params[:tag_page], :per_page => 5)
     @friends = @expert.friends.paginate(:page => params[:friend_page], :per_page => 5)
     
-    if($current_expert)
-      @search_text = 'Search via tags...'
-      @dis = false
+    if($current_expert == @expert)
+        @search_text = 'Search via tags...'
+        @dis = false
     else
-      @search_text = 'Must make an expert active before searching'
-      @dis = true
+        @search_text = 'Must make this expert active, before searching'
+        @dis = true
     end
   end
 
@@ -54,40 +53,30 @@ class ExpertsController < ApplicationController
   end
 
   # POST /experts
-  # POST /experts.json
   def create
     @expert = Expert.new(expert_params)
 
     respond_to do |format|
       if @expert.web_check(@expert.long_website)
         format.html { redirect_to @expert, notice: 'Expert was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @expert }
-        
-        
-        
       else
         format.html { render action: 'new' }
-        format.json { render json: @expert.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /experts/1
-  # PATCH/PUT /experts/1.json
   def update
     respond_to do |format|
       if @expert.web_check(expert_params[:long_website]) && @expert.update(expert_params)
         format.html { redirect_to @expert, notice: 'Expert was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @expert.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /experts/1
-  # DELETE /experts/1.json
   def destroy
     if ($current_expert == @expert)
       $current_expert = nil
@@ -96,7 +85,6 @@ class ExpertsController < ApplicationController
     
     respond_to do |format|
       format.html { redirect_to experts_url }
-      format.json { head :no_content }
     end
   end
 
