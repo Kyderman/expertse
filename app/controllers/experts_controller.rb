@@ -1,4 +1,6 @@
 class ExpertsController < ApplicationController
+  require 'nokogiri'
+  require 'open-uri'
   before_action :set_expert, only: [:show, :edit, :update, :destroy]
   
   # GET /experts
